@@ -31,7 +31,7 @@ number,qr_content,title,qr_version,mode
 031,HTTPS://HAMBURG-HRAM.DE/I/031,Благоверный князь Александр Невский,2,alphanumeric
 032,HTTPS://HAMBURG-HRAM.DE/I/032,Богоматерь «Неопалимая Купина»,2,alphanumeric
 033,HTTPS://HAMBURG-HRAM.DE/I/033,Святитель Спиридон Тримифунтский,2,alphanumeric
-036,HTTPS://HAMBURG-HRAM.DE/I/036,(same pressed-metal design as I035),2,alphanumeric
+036,HTTPS://HAMBURG-HRAM.DE/I/036,«Слава Грузинской Православной Церкви»,2,alphanumeric
 037,HTTPS://HAMBURG-HRAM.DE/I/037,Преподобный Паисий Святогорец,2,alphanumeric
 038,HTTPS://HAMBURG-HRAM.DE/I/038,Богоматерь «Державная»,2,alphanumeric
 039,HTTPS://HAMBURG-HRAM.DE/I/039,Богоматерь «Казанская»,2,alphanumeric
@@ -55,7 +55,7 @@ number,qr_content,title,qr_version,mode
 057,HTTPS://HAMBURG-HRAM.DE/I/057,Богоматерь «Воспитание»,2,alphanumeric
 058,HTTPS://HAMBURG-HRAM.DE/I/058,Богоматерь «Владимирская»,2,alphanumeric
 059,HTTPS://HAMBURG-HRAM.DE/I/059,Апостол и евангелист Иоанн Богослов,2,alphanumeric
-060,HTTPS://HAMBURG-HRAM.DE/I/060,Богоматерь «Одигитрия» (Смоленская?),2,alphanumeric
+060,HTTPS://HAMBURG-HRAM.DE/I/060,Богоматерь «Одигитрия» (Смоленская),2,alphanumeric
 061,HTTPS://HAMBURG-HRAM.DE/I/061,Преподобный Серафим Саровский,2,alphanumeric
 062,HTTPS://HAMBURG-HRAM.DE/I/062,Великомученик Георгий и равноапостольная Нина (Грузинская),2,alphanumeric
 063,HTTPS://HAMBURG-HRAM.DE/I/063,Преподобный Сергий Радонежский,2,alphanumeric
@@ -85,14 +85,14 @@ number,qr_content,title,qr_version,mode
 092,HTTPS://HAMBURG-HRAM.DE/I/092,Богоматерь «Всецарица»,2,alphanumeric
 093,HTTPS://HAMBURG-HRAM.DE/I/093,Богоматерь «Умягчение злых сердец»,2,alphanumeric
 094,HTTPS://HAMBURG-HRAM.DE/I/094,Святитель Нектарий Эгинский,2,alphanumeric
-095,HTTPS://HAMBURG-HRAM.DE/I/095,Двое преподобных с монастырём (Зосима и Савватий Соловецкие?),2,alphanumeric
+095,HTTPS://HAMBURG-HRAM.DE/I/095,Святой мученик Вонифатий,2,alphanumeric
 096,HTTPS://HAMBURG-HRAM.DE/I/096,Богоматерь Ахтырская,2,alphanumeric
 097,HTTPS://HAMBURG-HRAM.DE/I/097,Киот с иконами (обзор),2,alphanumeric
 098,HTTPS://HAMBURG-HRAM.DE/I/098,Богоматерь «Неупиваемая Чаша»,2,alphanumeric
 099,HTTPS://HAMBURG-HRAM.DE/I/099,Сказание о чудотворных иконах Пресвятой Богородицы,2,alphanumeric
 100,HTTPS://HAMBURG-HRAM.DE/I/100,Святые Константин и Елена с Богоматерью (роспись),2,alphanumeric
 102,HTTPS://HAMBURG-HRAM.DE/I/102,Крест с Распятием (без боковых панелей),2,alphanumeric
-103,HTTPS://HAMBURG-HRAM.DE/I/103,Икона № 103,2,alphanumeric
+103,HTTPS://HAMBURG-HRAM.DE/I/103,Святой Апостол и Евангелист Лука,2,alphanumeric
 034,HTTPS://HAMBURG-HRAM.DE/I/034,removed,2,alphanumeric
 035,HTTPS://HAMBURG-HRAM.DE/I/035,removed,2,alphanumeric
 080,HTTPS://HAMBURG-HRAM.DE/I/080,removed,2,alphanumeric

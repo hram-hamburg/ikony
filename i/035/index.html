@@ -117,6 +117,11 @@
   .dots { display: inline-flex; gap: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
   .dots i.on { background: var(--ink); }
+  /* the panel never wraps a label or value (user 2026-11-18): wide enough for «Очень крупный» + dots */
+  .panel { width: min(340px, calc(100vw - 32px)); box-sizing: border-box; }
+  .panel .label, .panel .val { white-space: nowrap; }
+  .panel .row { gap: 16px; }
+  @media (max-width: 359px) { .panel { font-size: 14px; } .val { gap: 7px; } }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }

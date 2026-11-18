@@ -118,6 +118,11 @@
   .dots { display: inline-flex; gap: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
   .dots i.on { background: var(--ink); }
+  /* the panel never wraps a label or value (user 2026-11-18): wide enough for «Очень крупный» + dots */
+  .panel { width: min(340px, calc(100vw - 32px)); box-sizing: border-box; }
+  .panel .label, .panel .val { white-space: nowrap; }
+  .panel .row { gap: 16px; }
+  @media (max-width: 359px) { .panel { font-size: 14px; } .val { gap: 7px; } }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
@@ -239,7 +244,7 @@
   <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="panel">Aa</button>
 </div>
 
-<script>window.ICON={"id":"081","kind":"theotokos","name":{"ru":"Богоматерь «Одигитрия»","de":null},"short":{"ru":"Богоматерь «Одигитрия»","de":null},"feasts":[],"feastLine":{"ru":null,"de":null},"feastsSource":null,"prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"ΜΡ ΘΥ only","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/081","w":1200,"h":1845,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6504)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6504))","alt":{"ru":"Икона: Богоматерь «Одигитрия»","de":null}},"zoom":{"img":"../../assets/img/081-1200.webp","img2x":"../../assets/img/081-1800.webp","w":1200,"h":1845,"tiles":{"base":"../../media/081/tiles","w":4439,"h":6823,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"098","ru":"Богоматерь «Неупиваемая Чаша»","de":"Ikone der Gottesmutter „Nicht zu leerender Kelch“","img":"../../assets/img/098-480","r":0.789,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}},"next":{"id":"060","ru":"Богоматерь «Одигитрия» (Смоленская?)","de":null,"img":"../../assets/img/060-480","r":0.8147,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}}}};</script>
+<script>window.ICON={"id":"081","kind":"theotokos","name":{"ru":"Богоматерь «Одигитрия»","de":null},"short":{"ru":"Богоматерь «Одигитрия»","de":null},"feasts":[],"feastLine":{"ru":null,"de":null},"feastsSource":null,"prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"ΜΡ ΘΥ only","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/081","w":1200,"h":1845,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6504)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6504))","alt":{"ru":"Икона: Богоматерь «Одигитрия»","de":null}},"zoom":{"img":"../../assets/img/081-1200.webp","img2x":"../../assets/img/081-1800.webp","w":1200,"h":1845,"tiles":{"base":"../../media/081/tiles","w":4439,"h":6823,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"098","ru":"Богоматерь «Неупиваемая Чаша»","de":"Ikone der Gottesmutter „Nicht zu leerender Kelch“","img":"../../assets/img/098-480","r":0.789,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}},"next":{"id":"060","ru":"Богоматерь «Одигитрия» (Смоленская)","de":null,"img":"../../assets/img/060-480","r":0.8147,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}}}};</script>
 <script>
 (() => {
   // ---------- strings ----------
@@ -250,7 +255,7 @@
           where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
           gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
           all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
-          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Жирный'], langRow: 'Язык', readRow: 'Чтение',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Насыщенный'], langRow: 'Язык', readRow: 'Чтение',
           other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
           close: 'Закрыть настройки', missing: 'Икона не найдена.' },
     de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',

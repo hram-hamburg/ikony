@@ -118,6 +118,11 @@
   .dots { display: inline-flex; gap: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
   .dots i.on { background: var(--ink); }
+  /* the panel never wraps a label or value (user 2026-11-18): wide enough for «Очень крупный» + dots */
+  .panel { width: min(340px, calc(100vw - 32px)); box-sizing: border-box; }
+  .panel .label, .panel .val { white-space: nowrap; }
+  .panel .row { gap: 16px; }
+  @media (max-width: 359px) { .panel { font-size: 14px; } .val { gap: 7px; } }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
@@ -239,7 +244,7 @@
   <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="panel">Aa</button>
 </div>
 
-<script>window.ICON={"id":"064","kind":"saint","name":{"ru":"Святые Царственные страстотерпцы","de":null},"short":{"ru":"Святые Царственные страстотерпцы","de":null},"feasts":[{"main":true,"ns":"07-17","os":"07-04","who":null}],"feastLine":{"ru":"Память 17 июля","de":"Gedenktag 17. Juli"},"feastsSource":"Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем","prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"Святии Царственнии мученицы","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/064","w":1200,"h":1431,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8386)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8386))","alt":{"ru":"Икона: Святые Царственные страстотерпцы","de":null}},"zoom":{"img":"../../assets/img/064-1200.webp","img2x":"../../assets/img/064-1800.webp","w":1200,"h":1431,"tiles":{"base":"../../media/064/tiles","w":4846,"h":5780,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"027","ru":"Мученик Уар","de":null,"img":"../../assets/img/027-480","r":0.7585,"sec":{"ru":"Святые","de":"Heilige"}},"next":{"id":"103","ru":"Икона № 103","de":null,"img":"../../assets/img/103-480","r":0.7022,"sec":{"ru":"Святые","de":"Heilige"}}}};</script>
+<script>window.ICON={"id":"064","kind":"saint","name":{"ru":"Святые Царственные страстотерпцы","de":null},"short":{"ru":"Святые Царственные страстотерпцы","de":null},"feasts":[{"main":true,"ns":"07-17","os":"07-04","who":null}],"feastLine":{"ru":"Память 17 июля","de":"Gedenktag 17. Juli"},"feastsSource":"Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем","prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"Святии Царственнии мученицы","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/064","w":1200,"h":1431,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8386)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8386))","alt":{"ru":"Икона: Святые Царственные страстотерпцы","de":null}},"zoom":{"img":"../../assets/img/064-1200.webp","img2x":"../../assets/img/064-1800.webp","w":1200,"h":1431,"tiles":{"base":"../../media/064/tiles","w":4846,"h":5780,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"027","ru":"Мученик Уар","de":null,"img":"../../assets/img/027-480","r":0.7585,"sec":{"ru":"Святые","de":"Heilige"}},"next":{"id":"087","ru":"Киот с иконами (обзор)","de":null,"img":"../../assets/img/087-480","r":0.9639,"sec":{"ru":"Росписи и киоты","de":"Wandmalerei und Ikonenschreine"}}}};</script>
 <script>
 (() => {
   // ---------- strings ----------
@@ -250,7 +255,7 @@
           where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
           gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
           all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
-          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Жирный'], langRow: 'Язык', readRow: 'Чтение',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Насыщенный'], langRow: 'Язык', readRow: 'Чтение',
           other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
           close: 'Закрыть настройки', missing: 'Икона не найдена.' },
     de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',

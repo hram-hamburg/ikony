@@ -4,13 +4,13 @@
 <meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#16120E">
-<title>Богоматерь «Одигитрия» (Смоленская?) — Храм св. прав. Иоанна Кронштадтского, Гамбург</title>
+<title>Богоматерь «Одигитрия» (Смоленская) — Храм св. прав. Иоанна Кронштадтского, Гамбург</title>
 <link rel="preload" href="../../assets/fonts/ptserif-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../../assets/fonts/monomakh-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../../assets/tokens.css">
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
-<meta name="description" content="Богоматерь «Одигитрия» (Смоленская?). Икона в храме св. прав. Иоанна Кронштадтского, Гамбург.">
+<meta name="description" content="Богоматерь «Одигитрия» (Смоленская). Празднование 10 августа. Икона в храме св. прав. Иоанна Кронштадтского, Гамбург.">
 <link rel="canonical" href="https://hamburg-hram.de/i/060">
 <style>
   * { box-sizing: border-box; }
@@ -118,6 +118,11 @@
   .dots { display: inline-flex; gap: 4px; }
   .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
   .dots i.on { background: var(--ink); }
+  /* the panel never wraps a label or value (user 2026-11-18): wide enough for «Очень крупный» + dots */
+  .panel { width: min(340px, calc(100vw - 32px)); box-sizing: border-box; }
+  .panel .label, .panel .val { white-space: nowrap; }
+  .panel .row { gap: 16px; }
+  @media (max-width: 359px) { .panel { font-size: 14px; } .val { gap: 7px; } }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
@@ -216,8 +221,8 @@
 </head>
 <body class="theme-church">
 <main class="page" id="page">
-<figure class="icon"><div class="fig" style="--r:0.8147"><picture><source type="image/avif" srcset="../../assets/img/060-480.avif 480w, ../../assets/img/060-800.avif 800w, ../../assets/img/060-1200.avif 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))"><img src="../../assets/img/060-800.webp" srcset="../../assets/img/060-480.webp 480w, ../../assets/img/060-800.webp 800w, ../../assets/img/060-1200.webp 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))" alt="Икона: Богоматерь «Одигитрия» (Смоленская?)" width="1200" height="1473" decoding="async" fetchpriority="high"></picture></div></figure>
-<header class="title"><h1 lang="ru">Богоматерь «Одигитрия» (Смоленская?)</h1></header>
+<figure class="icon"><div class="fig" style="--r:0.8147"><picture><source type="image/avif" srcset="../../assets/img/060-480.avif 480w, ../../assets/img/060-800.avif 800w, ../../assets/img/060-1200.avif 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))"><img src="../../assets/img/060-800.webp" srcset="../../assets/img/060-480.webp 480w, ../../assets/img/060-800.webp 800w, ../../assets/img/060-1200.webp 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))" alt="Икона: Богоматерь «Одигитрия» (Смоленская)" width="1200" height="1473" decoding="async" fetchpriority="high"></picture></div></figure>
+<header class="title"><h1 lang="ru">Богоматерь «Одигитрия» (Смоленская)</h1></header>
 <section class="more"><a class="back" href="../../icons/index.html">← Все иконы храма</a></section><footer class="foot">
   <a class="foot-mark" href="https://www.hamburg-hram.de/" aria-label="hamburg-hram.de"><img src="../../assets/brand/church-logo-ondark.svg" alt="" width="28" height="50" loading="lazy" decoding="async"></a>
   <div class="foot-txt" lang="ru">
@@ -239,7 +244,7 @@
   <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="panel">Aa</button>
 </div>
 
-<script>window.ICON={"id":"060","kind":"theotokos","name":{"ru":"Богоматерь «Одигитрия» (Смоленская?)","de":null},"short":{"ru":"Богоматерь «Одигитрия» (Смоленская?)","de":null},"feasts":[],"feastLine":{"ru":null,"de":null},"feastsSource":null,"prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"ΜΡ ΘΥ only","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/060","w":1200,"h":1473,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))","alt":{"ru":"Икона: Богоматерь «Одигитрия» (Смоленская?)","de":null}},"zoom":{"img":"../../assets/img/060-1200.webp","img2x":"../../assets/img/060-1800.webp","w":1200,"h":1473,"tiles":{"base":"../../media/060/tiles","w":3751,"h":4604,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"081","ru":"Богоматерь «Одигитрия»","de":null,"img":"../../assets/img/081-480","r":0.6504,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}},"next":{"id":"086","ru":"Покров Пресвятой Богородицы","de":null,"img":"../../assets/img/086-480","r":0.8186,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}}}};</script>
+<script>window.ICON={"id":"060","kind":"theotokos","name":{"ru":"Богоматерь «Одигитрия» (Смоленская)","de":null},"short":{"ru":"Богоматерь «Одигитрия» (Смоленская)","de":null},"feasts":[{"main":true,"ns":"08-10","os":"07-28","who":null}],"feastLine":{"ru":"Празднование 10 августа","de":"Festtag 10. August"},"feastsSource":"Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем","prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":null,"relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/060","w":1200,"h":1473,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))","alt":{"ru":"Икона: Богоматерь «Одигитрия» (Смоленская)","de":null}},"zoom":{"img":"../../assets/img/060-1200.webp","img2x":"../../assets/img/060-1800.webp","w":1200,"h":1473,"tiles":{"base":"../../media/060/tiles","w":3751,"h":4604,"sf":[1,2,4,8,16],"box":[0,0,1,1]}},"nav":{"prev":{"id":"081","ru":"Богоматерь «Одигитрия»","de":null,"img":"../../assets/img/081-480","r":0.6504,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}},"next":{"id":"086","ru":"Покров Пресвятой Богородицы","de":null,"img":"../../assets/img/086-480","r":0.8186,"sec":{"ru":"Пресвятая Богородица","de":"Die Gottesmutter"}}}};</script>
 <script>
 (() => {
   // ---------- strings ----------
@@ -250,7 +255,7 @@
           where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
           gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
           all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
-          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Жирный'], langRow: 'Язык', readRow: 'Чтение',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Насыщенный'], langRow: 'Язык', readRow: 'Чтение',
           other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
           close: 'Закрыть настройки', missing: 'Икона не найдена.' },
     de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',

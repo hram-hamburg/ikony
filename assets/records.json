@@ -3507,11 +3507,11 @@
   },
   "nav": {
    "prev": {
-    "id": "063",
-    "ru": "Преподобный Сергий Радонежский",
-    "de": null,
-    "img": "../../assets/img/063-480",
-    "r": 0.4813,
+    "id": "036",
+    "ru": "«Слава Грузинской Православной Церкви»",
+    "de": "„Der Ruhm der Georgischen Orthodoxen Kirche“",
+    "img": "../../assets/img/036-480",
+    "r": 0.8397,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -3534,12 +3534,12 @@
   "id": "036",
   "kind": "saint",
   "name": {
-   "ru": "(same pressed-metal design as I035)",
-   "de": null
+   "ru": "«Слава Грузинской Православной Церкви»",
+   "de": "„Der Ruhm der Georgischen Orthodoxen Kirche“"
   },
   "short": {
-   "ru": "(same pressed-metal design as I035)",
-   "de": null
+   "ru": "«Слава Грузинской Православной Церкви»",
+   "de": "„Der Ruhm der Georgischen Orthodoxen Kirche“"
   },
   "feasts": [],
   "feastLine": {
@@ -3579,8 +3579,8 @@
    "h": 1429,
    "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8397)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8397))",
    "alt": {
-    "ru": "Икона: (same pressed-metal design as I035)",
-    "de": null
+    "ru": "Икона: «Слава Грузинской Православной Церкви»",
+    "de": "Ikone: „Der Ruhm der Georgischen Orthodoxen Kirche“"
    }
   },
   "zoom": {
@@ -3609,22 +3609,22 @@
   },
   "nav": {
    "prev": {
-    "id": "073",
-    "ru": "Собор Архистратига Михаила",
+    "id": "063",
+    "ru": "Преподобный Сергий Радонежский",
     "de": null,
-    "img": "../../assets/img/073-480",
-    "r": 0.8772,
+    "img": "../../assets/img/063-480",
+    "r": 0.4813,
     "sec": {
-     "ru": "Праздники",
-     "de": "Feste"
+     "ru": "Святые",
+     "de": "Heilige"
     }
    },
    "next": {
-    "id": "091",
-    "ru": "Преподобный Агапит Печерский, врач безмездный",
+    "id": "033",
+    "ru": "Святитель Спиридон Тримифунтский",
     "de": null,
-    "img": "../../assets/img/091-480",
-    "r": 0.6908,
+    "img": "../../assets/img/033-480",
+    "r": 0.7802,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -6483,11 +6483,11 @@
     }
    },
    "next": {
-    "id": "090",
-    "ru": "Мученик Евгений",
-    "de": null,
-    "img": "../../assets/img/090-480",
-    "r": 0.6973,
+    "id": "103",
+    "ru": "Святой Апостол и Евангелист Лука",
+    "de": "Heiliger Apostel und Evangelist Lukas",
+    "img": "../../assets/img/103-480",
+    "r": 0.7022,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -6499,19 +6499,26 @@
   "id": "060",
   "kind": "theotokos",
   "name": {
-   "ru": "Богоматерь «Одигитрия» (Смоленская?)",
+   "ru": "Богоматерь «Одигитрия» (Смоленская)",
    "de": null
   },
   "short": {
-   "ru": "Богоматерь «Одигитрия» (Смоленская?)",
+   "ru": "Богоматерь «Одигитрия» (Смоленская)",
    "de": null
   },
-  "feasts": [],
+  "feasts": [
+   {
+    "main": true,
+    "ns": "08-10",
+    "os": "07-28",
+    "who": null
+   }
+  ],
   "feastLine": {
-   "ru": null,
-   "de": null
+   "ru": "Празднование 10 августа",
+   "de": "Festtag 10. August"
   },
-  "feastsSource": null,
+  "feastsSource": "Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем",
   "prayer": {
    "ru": null,
    "de": null
@@ -6533,7 +6540,7 @@
   "about": {
    "location": null,
    "depiction": null,
-   "inscription": "ΜΡ ΘΥ only",
+   "inscription": null,
    "relic": null,
    "iconographer": null
   },
@@ -6544,7 +6551,7 @@
    "h": 1473,
    "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8147)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8147))",
    "alt": {
-    "ru": "Икона: Богоматерь «Одигитрия» (Смоленская?)",
+    "ru": "Икона: Богоматерь «Одигитрия» (Смоленская)",
     "de": null
    }
   },
@@ -6815,11 +6822,11 @@
     }
    },
    "next": {
-    "id": "095",
-    "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
+    "id": "071",
+    "ru": "Благоверный князь Димитрий Донской и преподобная Евфросиния Московская",
     "de": null,
-    "img": "../../assets/img/095-480",
-    "r": 0.8368,
+    "img": "../../assets/img/071-480",
+    "r": 0.7782,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -6930,11 +6937,11 @@
     }
    },
    "next": {
-    "id": "033",
-    "ru": "Святитель Спиридон Тримифунтский",
-    "de": null,
-    "img": "../../assets/img/033-480",
-    "r": 0.7802,
+    "id": "036",
+    "ru": "«Слава Грузинской Православной Церкви»",
+    "de": "„Der Ruhm der Georgischen Orthodoxen Kirche“",
+    "img": "../../assets/img/036-480",
+    "r": 0.8397,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -7039,14 +7046,14 @@
     }
    },
    "next": {
-    "id": "103",
-    "ru": "Икона № 103",
+    "id": "087",
+    "ru": "Киот с иконами (обзор)",
     "de": null,
-    "img": "../../assets/img/103-480",
-    "r": 0.7022,
+    "img": "../../assets/img/087-480",
+    "r": 0.9639,
     "sec": {
-     "ru": "Святые",
-     "de": "Heilige"
+     "ru": "Росписи и киоты",
+     "de": "Wandmalerei und Ikonenschreine"
     }
    }
   }
@@ -8015,11 +8022,11 @@
   },
   "nav": {
    "prev": {
-    "id": "095",
-    "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
+    "id": "062",
+    "ru": "Великомученик Георгий и равноапостольная Нина (Грузинская)",
     "de": null,
-    "img": "../../assets/img/095-480",
-    "r": 0.8368,
+    "img": "../../assets/img/062-480",
+    "r": 0.7156,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -8124,11 +8131,11 @@
   },
   "nav": {
    "prev": {
-    "id": "076",
-    "ru": "Праведный воин Феодор Ушаков",
-    "de": "Der heilige Fjodor Uschakow",
-    "img": "../../assets/img/076-480",
-    "r": 0.827,
+    "id": "095",
+    "ru": "Святой мученик Вонифатий",
+    "de": "Heiliger Märtyrer Bonifatius",
+    "img": "../../assets/img/095-480",
+    "r": 0.8368,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -8243,11 +8250,11 @@
     }
    },
    "next": {
-    "id": "036",
-    "ru": "(same pressed-metal design as I035)",
+    "id": "091",
+    "ru": "Преподобный Агапит Печерский, врач безмездный",
     "de": null,
-    "img": "../../assets/img/036-480",
-    "r": 0.8397,
+    "img": "../../assets/img/091-480",
+    "r": 0.6908,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -8578,11 +8585,11 @@
     }
    },
    "next": {
-    "id": "072",
-    "ru": "Мученицы Галина и Лидия",
-    "de": null,
-    "img": "../../assets/img/072-480",
-    "r": 0.7752,
+    "id": "095",
+    "ru": "Святой мученик Вонифатий",
+    "de": "Heiliger Märtyrer Bonifatius",
+    "img": "../../assets/img/095-480",
+    "r": 0.8368,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -8910,7 +8917,7 @@
    },
    "next": {
     "id": "060",
-    "ru": "Богоматерь «Одигитрия» (Смоленская?)",
+    "ru": "Богоматерь «Одигитрия» (Смоленская)",
     "de": null,
     "img": "../../assets/img/060-480",
     "r": 0.8147,
@@ -9455,7 +9462,7 @@
   "nav": {
    "prev": {
     "id": "060",
-    "ru": "Богоматерь «Одигитрия» (Смоленская?)",
+    "ru": "Богоматерь «Одигитрия» (Смоленская)",
     "de": null,
     "img": "../../assets/img/060-480",
     "r": 0.8147,
@@ -9577,8 +9584,8 @@
    },
    {
     "id": "103",
-    "ru": "Икона № 103",
-    "de": null
+    "ru": "Святой Апостол и Евангелист Лука",
+    "de": "Heiliger Apostel und Evangelist Lukas"
    }
   ],
   "relTitle": {
@@ -9587,11 +9594,11 @@
   },
   "nav": {
    "prev": {
-    "id": "103",
-    "ru": "Икона № 103",
+    "id": "064",
+    "ru": "Святые Царственные страстотерпцы",
     "de": null,
-    "img": "../../assets/img/103-480",
-    "r": 0.7022,
+    "img": "../../assets/img/064-480",
+    "r": 0.8386,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -9641,8 +9648,8 @@
     },
     {
      "id": "103",
-     "ru": "Икона № 103",
-     "de": null,
+     "ru": "Святой Апостол и Евангелист Лука",
+     "de": "Heiliger Apostel und Evangelist Lukas",
      "pts": "41.3,7.9 58.6,7.9 58.6,32.0 41.3,32.0",
      "tiles": {
       "base": "../../media/103/tiles",
@@ -10080,11 +10087,11 @@
   },
   "nav": {
    "prev": {
-    "id": "059",
-    "ru": "Апостол и евангелист Иоанн Богослов",
-    "de": null,
-    "img": "../../assets/img/059-480",
-    "r": 0.7973,
+    "id": "103",
+    "ru": "Святой Апостол и Евангелист Лука",
+    "de": "Heiliger Apostel und Evangelist Lukas",
+    "img": "../../assets/img/103-480",
+    "r": 0.7022,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -10199,14 +10206,14 @@
   },
   "nav": {
    "prev": {
-    "id": "036",
-    "ru": "(same pressed-metal design as I035)",
+    "id": "073",
+    "ru": "Собор Архистратига Михаила",
     "de": null,
-    "img": "../../assets/img/036-480",
-    "r": 0.8397,
+    "img": "../../assets/img/073-480",
+    "r": 0.8772,
     "sec": {
-     "ru": "Святые",
-     "de": "Heilige"
+     "ru": "Праздники",
+     "de": "Feste"
     }
    },
    "next": {
@@ -10581,19 +10588,26 @@
   "id": "095",
   "kind": "saint",
   "name": {
-   "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
-   "de": null
+   "ru": "Святой мученик Вонифатий и преподобный в молении Спасу Нерукотворному (икона-мощевик)",
+   "de": "Heiliger Märtyrer Bonifatius und ein ehrwürdiger Mönchsheiliger im Gebet vor dem Nicht von Menschenhand geschaffenen Erlöser (Reliquienikone)"
   },
   "short": {
-   "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
-   "de": null
+   "ru": "Святой мученик Вонифатий",
+   "de": "Heiliger Märtyrer Bonifatius"
   },
-  "feasts": [],
+  "feasts": [
+   {
+    "main": true,
+    "ns": "01-01",
+    "os": "12-19",
+    "who": null
+   }
+  ],
   "feastLine": {
-   "ru": null,
-   "de": null
+   "ru": "Память 1 января",
+   "de": "Gedenktag 1. Januar"
   },
-  "feastsSource": null,
+  "feastsSource": "Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем",
   "prayer": {
    "ru": null,
    "de": null
@@ -10626,8 +10640,8 @@
    "h": 1434,
    "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.8368)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.8368))",
    "alt": {
-    "ru": "Икона: Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
-    "de": null
+    "ru": "Икона: Святой мученик Вонифатий",
+    "de": "Ikone: Heiliger Märtyrer Bonifatius"
    }
   },
   "zoom": {
@@ -10667,22 +10681,22 @@
   },
   "nav": {
    "prev": {
-    "id": "062",
-    "ru": "Великомученик Георгий и равноапостольная Нина (Грузинская)",
-    "de": null,
-    "img": "../../assets/img/062-480",
-    "r": 0.7156,
+    "id": "076",
+    "ru": "Праведный воин Феодор Ушаков",
+    "de": "Der heilige Fjodor Uschakow",
+    "img": "../../assets/img/076-480",
+    "r": 0.827,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
     }
    },
    "next": {
-    "id": "071",
-    "ru": "Благоверный князь Димитрий Донской и преподобная Евфросиния Московская",
+    "id": "072",
+    "ru": "Мученицы Галина и Лидия",
     "de": null,
-    "img": "../../assets/img/071-480",
-    "r": 0.7782,
+    "img": "../../assets/img/072-480",
+    "r": 0.7752,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
@@ -10904,8 +10918,8 @@
    },
    {
     "id": "095",
-    "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
-    "de": null
+    "ru": "Святой мученик Вонифатий",
+    "de": "Heiliger Märtyrer Bonifatius"
    },
    {
     "id": "096",
@@ -11029,8 +11043,8 @@
     },
     {
      "id": "095",
-     "ru": "Двое преподобных с монастырём (Зосима и Савватий Соловецкие?)",
-     "de": null,
+     "ru": "Святой мученик Вонифатий",
+     "de": "Heiliger Märtyrer Bonifatius",
      "pts": "8.4,50.8 43.6,50.8 43.6,91.1 8.4,91.1",
      "tiles": {
       "base": "../../media/095/tiles",
@@ -11616,19 +11630,26 @@
   "id": "103",
   "kind": "saint",
   "name": {
-   "ru": "Икона № 103",
-   "de": null
+   "ru": "Святой Апостол и Евангелист Лука",
+   "de": "Heiliger Apostel und Evangelist Lukas"
   },
   "short": {
-   "ru": "Икона № 103",
-   "de": null
+   "ru": "Святой Апостол и Евангелист Лука",
+   "de": "Heiliger Apostel und Evangelist Lukas"
   },
-  "feasts": [],
+  "feasts": [
+   {
+    "main": true,
+    "ns": "10-31",
+    "os": "10-18",
+    "who": null
+   }
+  ],
   "feastLine": {
-   "ru": null,
-   "de": null
+   "ru": "Память 31 октября",
+   "de": "Gedenktag 31. Oktober"
   },
-  "feastsSource": null,
+  "feastsSource": "Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем",
   "prayer": {
    "ru": null,
    "de": null
@@ -11661,8 +11682,8 @@
    "h": 1709,
    "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.7022)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.7022))",
    "alt": {
-    "ru": "Икона: Икона № 103",
-    "de": null
+    "ru": "Икона: Святой Апостол и Евангелист Лука",
+    "de": "Ikone: Heiliger Apostel und Evangelist Lukas"
    }
   },
   "zoom": {
@@ -11700,25 +11721,25 @@
   },
   "nav": {
    "prev": {
-    "id": "064",
-    "ru": "Святые Царственные страстотерпцы",
+    "id": "059",
+    "ru": "Апостол и евангелист Иоанн Богослов",
     "de": null,
-    "img": "../../assets/img/064-480",
-    "r": 0.8386,
+    "img": "../../assets/img/059-480",
+    "r": 0.7973,
     "sec": {
      "ru": "Святые",
      "de": "Heilige"
     }
    },
    "next": {
-    "id": "087",
-    "ru": "Киот с иконами (обзор)",
+    "id": "090",
+    "ru": "Мученик Евгений",
     "de": null,
-    "img": "../../assets/img/087-480",
-    "r": 0.9639,
+    "img": "../../assets/img/090-480",
+    "r": 0.6973,
     "sec": {
-     "ru": "Росписи и киоты",
-     "de": "Wandmalerei und Ikonenschreine"
+     "ru": "Святые",
+     "de": "Heilige"
     }
    }
   }

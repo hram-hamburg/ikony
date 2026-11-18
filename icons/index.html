@@ -27,7 +27,7 @@
   .brand { display: inline-flex; align-items: flex-end; gap: var(--s-3); min-height: var(--tap); font: 400 12px/1 var(--font-ui);
            letter-spacing: .14em; text-transform: uppercase; color: var(--quiet); }
   .brand img { width: 20px; height: auto; flex: none; display: block; }
-  .brand span { line-height: 1.35; margin-bottom: -2px; }
+  .brand span { line-height: 1.35; margin-bottom: -2px; white-space: pre-line; }   /* same two-line break on phone and web (user 2026-11-18) */
   .lang { all: unset; box-sizing: border-box; min-width: var(--tap); min-height: var(--tap); display: flex; align-items: flex-end; justify-content: flex-end;
           margin-bottom: -2px;
           font: 400 13px/1 var(--font-ui); letter-spacing: .14em; color: var(--quiet); cursor: pointer; transition: color .2s; }
@@ -131,7 +131,6 @@
     .patron small { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
     .patron b { display: block; margin-top: var(--s-1); font: 400 21px/1.25 var(--font-rubric); }
     .patron .day { display: block; margin-top: var(--s-1); text-align: left; white-space: normal; }
-    .brand span { max-width: 15em; }
   }
 
   /* footer: church mark + the parish's name and address (one block, the same on every page) */
@@ -183,10 +182,10 @@
 <script src="../assets/icons-data.js"></script>
 <script>(() => {
   const T = {
-    ru: { church: 'Храм св. прав. Иоанна Кронштадтского', church2: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
+    ru: { church: 'Храм св. прав. Иоанна\nКронштадтского', church2: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
           title: 'Иконы нашего храма', lede: 'Иконы, молитвы и жития святых.', search: 'Имя святого', empty: 'Ничего не найдено',
           patron: 'Покровитель храма', up: 'Наверх', other: 'DE', otherName: 'Deutsch', all: n => `Показать все (${n})` },
-    de: { church: 'Kirche des hl. Johannes von Kronstadt', church2: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
+    de: { church: 'Kirche des hl. Johannes\nvon Kronstadt', church2: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
           title: 'Ikonen unseres Gotteshauses', lede: 'Ikonen, Gebete und Viten der Heiligen.', search: 'Name des Heiligen', empty: 'Nichts gefunden',
           patron: 'Patron unserer Kirche', up: 'Nach oben', other: 'RU', otherName: 'Русский', all: n => `Alle anzeigen (${n})` } };
   const S = window.SECTIONS, I = window.ICONS, P = window.PATRON;

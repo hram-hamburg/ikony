@@ -596,19 +596,25 @@
 
   // ---------- menu C ----------
   const $ = id => document.getElementById(id);
+  const setText = (el, v) => { if (el.textContent !== v) el.textContent = v; };
+  function setVal(id, text, n, i) {
+    const el = $(id);
+    if (!el.firstChild) el.innerHTML = '<span></span><span class="dots" aria-hidden="true">' + '<i></i>'.repeat(n) + '</span>';
+    setText(el.firstChild, text);
+    [...el.lastChild.children].forEach((d, k) => d.classList.toggle('on', k === i));
+  }
   function renderMenu() {
     const t = T[state.lang];
-    document.querySelectorAll('[data-t]').forEach(el => el.textContent = t[el.dataset.t]);
+    document.querySelectorAll('[data-t]').forEach(el => setText(el, t[el.dataset.t]));
     $('panel').setAttribute('aria-label', t.nav);
-    $('panel').hidden = !state.panel;
-    $('fab').textContent = state.panel ? '×' : 'Aa';
+    if ($('panel').hidden === state.panel) $('panel').hidden = !state.panel;
+    setText($('fab'), state.panel ? '×' : 'Aa');
     $('fab').setAttribute('aria-expanded', String(state.panel));
     $('fab').setAttribute('aria-label', state.panel ? t.close : t.nav);
-    const dots = (n, i) => Array.from({ length: n }, (_, k) => `<i${k === i ? ' class="on"' : ''}></i>`).join('');
-    $('sizeValue').innerHTML = `${esc(t.sizes[state.sz])}<span class="dots" aria-hidden="true">${dots(3, state.sz)}</span>`;
-    $('weightValue').innerHTML = `${esc(t.weights[+state.bold])}<span class="dots" aria-hidden="true">${dots(2, +state.bold)}</span>`;
-    $('langValue').textContent = t.other;                    // shows the language you will switch TO
-    $('readValue').textContent = state.reading ? t.readOff : t.readOn;  // shows what tapping will do
+    setVal('sizeValue', t.sizes[state.sz], 3, state.sz);
+    setVal('weightValue', t.weights[+state.bold], 2, +state.bold);
+    setText($('langValue'), t.other);                    // shows the language you will switch TO
+    setText($('readValue'), state.reading ? t.readOff : t.readOn);  // shows what tapping will do
   }
 
   function syncUrl() {
@@ -618,7 +624,7 @@
     history.replaceState(null, '', '?' + p.toString());
   }
 
-  $('fab').addEventListener('click', () => { state.panel = !state.panel; renderMenu(); });
+  $('fab').addEventListener('click', () => { state.panel = !state.panel; renderMenu(); if (state.panel && document.fonts) document.fonts.load('700 1em "PT Serif"'); });
   $('size').addEventListener('click', () => { state.sz = (state.sz + 1) % SIZES.length; store.set('sz', state.sz); applySettings(); renderMenu(); });
   $('weight').addEventListener('click', () => { state.bold = !state.bold; store.set('bold', state.bold ? '1' : '0'); applySettings(); renderMenu(); });
   $('lang').addEventListener('click', () => { state.lang = state.lang === 'ru' ? 'de' : 'ru'; store.set('lang', state.lang); syncUrl(); render(); $('lang').focus(); });

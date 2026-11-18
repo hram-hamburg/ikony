@@ -1,0 +1,40 @@
+/* Design tokens. Source of truth: docs/DESIGN.md §2–3. */
+
+:root {
+  /* Type families. Exactly two on any reading view (Serif + Monomakh); Sans only for UI chrome. */
+  --font-serif: 'PT Serif', Georgia, serif;
+  --font-rubric: Monomakh, 'PT Serif', Georgia, serif;   /* Church Slavonic-style display, red rubrics + Title B */
+  --font-ui: 'PT Sans', system-ui, sans-serif;
+
+  /* Spacing scale (px) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px;
+
+  --tap: 48px;            /* minimum touch target */
+  --column: 560px;        /* reading column max width on large screens */
+  --radius-panel: 12px;
+}
+
+/* In church: dark only. No light mode (decision: phones must not light up the nave). */
+.theme-church {
+  --bg: #16120E;
+  --ink: #E3D9C7;
+  --quiet: #A4977F;
+  --rubric: #E2694C;      /* liturgical red, tuned for dark ground: 5.6:1 on --bg */
+  --line: #3A3128;
+  --pill: #1D1813;
+  color-scheme: dark;
+}
+
+/* At home: the website library, paper-light. */
+.theme-paper {
+  --bg: #F6F1E7;
+  --surface: #FBF8F2;
+  --well: #EFE8DA;
+  --ink: #231B14;
+  --quiet: #6B5E4E;
+  --rubric: #A53A22;
+  --line: #DDD3C2;
+  --field: #FFFDF8;
+  --field-line: #8F806A;   /* 3.4:1 on --bg, meets WCAG 1.4.11 for control borders */
+  color-scheme: light;
+}

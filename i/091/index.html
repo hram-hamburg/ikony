@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16120E">
+<title>Преподобный Агапит Печерский, врач безмездный — Храм св. прав. Иоанна Кронштадтского, Гамбург</title>
+<link rel="preload" href="../../assets/fonts/ptserif-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/monomakh-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="description" content="Преподобный Агапит Печерский, врач безмездный. Память 14 июня. Икона в храме св. прав. Иоанна Кронштадтского, Гамбург.">
+<link rel="canonical" href="https://hamburg-hram.de/i/091">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-serif); }
+  a, button { color: inherit; }
+  :focus-visible { outline: 2px solid var(--quiet); outline-offset: 2px; }
+
+  .page { max-width: var(--column); margin: 0 auto; padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
+
+  /* Icon: as wide as the text column */
+  .icon { margin: 0; padding: 24px 24px 0; }
+  .icon img { width: 100%; height: auto; display: block; }
+
+  /* Title B: saint's name in Monomakh, centred; date in PT Serif */
+  .title { padding: 22px 24px 0; text-align: center; }
+  .title h1 { margin: 0; font-family: var(--font-rubric); font-weight: 400; font-size: 26px; line-height: 1.25; color: var(--ink); text-wrap: balance; }
+  .title .feast { margin: 10px 0 0; font-size: 16px; color: var(--quiet); }
+
+  .reading-head { margin: 0; padding: 26px 24px 0; font-size: 15px; color: var(--quiet); text-align: center; }
+
+  /* Prayer: justified block like a prayer book, red initial */
+  .prayer { padding: 30px 24px 8px; }
+  .rubric { margin: 0 0 22px; font-family: var(--font-rubric); font-weight: 400; font-size: 30px; line-height: 1.25; text-align: center; color: var(--rubric); }
+  .note { margin: 0 0 18px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-family: var(--font-ui); font-size: 14px; line-height: 1.5; color: var(--quiet); }
+  .prayer-text {
+    margin: 0; font-weight: 700; font-size: var(--prayer-size, 20px); line-height: 1.55;
+    text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto;
+    hyphenate-limit-chars: 6 3 3; text-wrap: pretty;
+  }
+  body.large .prayer-text { text-align: start; }   /* few words per line: justify would open rivers */
+  .initial { color: var(--rubric); font-size: 1.22em; line-height: 1; }
+
+  /* More: native disclosure widgets */
+  .more { padding: 20px 24px 0; font-family: var(--font-ui); }
+  .more details { border-top: 1px solid var(--line); }
+  .more details:last-of-type { border-bottom: 1px solid var(--line); }
+  .more summary { list-style: none; min-height: 56px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 16px; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary::after { content: "+"; color: var(--quiet); font-size: 18px; }
+  .more details[open] summary::after { content: "−"; }
+  .more .body { padding: 0 0 22px; }
+  .hymn-rubric { margin: 0 0 8px; font-family: var(--font-rubric); font-size: 21px; text-align: center; color: var(--rubric); }
+  .hymn { margin: 0 0 22px; font-family: var(--font-serif); font-size: 18px; line-height: 1.6; text-align: center; }
+  .gap { color: var(--quiet); }
+  .life { margin: 0; font-family: var(--font-serif); font-size: calc(var(--prayer-size, 20px) - 2px); line-height: 1.6; text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: pretty; }
+  .about { margin: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 10px 12px; font-size: 15px; line-height: 1.45; }
+  .about dt { color: var(--quiet); }
+  .about dd { margin: 0; }
+
+  .back { display: inline-flex; align-items: center; min-height: var(--tap); margin-top: 12px; font-family: var(--font-ui); font-size: 15px; text-decoration: none; color: var(--quiet); }
+  .church { margin: 36px 0 0; text-align: center; font-family: var(--font-ui); font-size: 13px; letter-spacing: .02em; line-height: 1.5; color: var(--quiet); }
+
+  /* Reading mode: prayer only */
+  body.reading .icon, body.reading .title, body.reading .more { display: none; }
+  body:not(.reading) .reading-head { display: none; }
+
+  /* Menu C: one round "Aa" button, opens a small panel */
+  .menu { position: fixed; z-index: 10;
+          right: max(16px, calc((100vw - var(--column)) / 2 + 16px));
+          bottom: calc(22px + env(safe-area-inset-bottom));
+          display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+          font-family: var(--font-ui); font-size: 16px; color: var(--ink); }
+  .fab { all: unset; width: 52px; height: 52px; border: 1px solid var(--line); border-radius: 26px; background: var(--pill);
+         display: flex; align-items: center; justify-content: center; cursor: pointer; font-family: var(--font-serif); font-size: 20px; box-sizing: border-box; }
+  .fab:focus-visible { outline: 2px solid var(--quiet); outline-offset: 2px; }
+  .panel { width: 264px; padding: 0 16px; border: 1px solid var(--line); border-radius: var(--radius-panel); background: var(--pill); }
+  .panel[hidden] { display: none; }
+  .row { all: unset; box-sizing: border-box; width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+  .row + .row, .size + .row { border-top: 1px solid var(--line); }
+  .row:focus-visible { outline: 2px solid var(--quiet); outline-offset: -2px; }
+  .size { display: flex; align-items: center; justify-content: space-between; min-height: 56px; }
+  .label { color: var(--quiet); }
+  .steppers { display: flex; margin-right: -8px; }
+  .step { all: unset; width: var(--tap); height: var(--tap); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .step:focus-visible { outline: 2px solid var(--quiet); outline-offset: -2px; }
+  .step[disabled] { opacity: .35; cursor: default; }
+  .step.minus { font-size: 15px; } .step.plus { font-size: 20px; }
+
+  @media (prefers-reduced-motion: no-preference) { .panel { animation: rise .14s ease-out; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(4px); } }
+  .missing { padding: 64px 24px; font-family: var(--font-ui); color: var(--quiet); text-align: center; }
+
+  /* footer: church mark + the parish's name and address (one block, the same on every page) */
+  .foot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-4, 16px) var(--s-5, 24px); align-items: start;
+          margin-top: clamp(48px, 10vw, 144px); padding: var(--s-6, 32px) 0 calc(var(--s-6, 32px) + env(safe-area-inset-bottom));
+          border-top: 1px solid var(--line); font: 400 13px/1.55 var(--font-ui); color: var(--quiet); text-align: left; }
+  .foot p, .foot address { margin: 0; font-style: normal; }
+  .foot-mark { display: grid; justify-items: center; width: 48px; min-height: 48px; margin: -2px -10px 0; }
+  .foot-mark img { display: block; width: 28px; height: auto; }
+  .foot-name { color: var(--ink); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; }
+  .foot-sub { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; margin-bottom: 10px !important; }
+  .foot address a, .foot-legal a { display: inline-flex; align-items: center; min-height: 48px; color: var(--quiet); text-decoration: underline;
+          text-decoration-color: var(--line); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+  .foot address a { min-height: 48px; margin: -14px 0; }
+  .foot a:hover { color: var(--ink); text-decoration-color: var(--quiet); }
+  .foot-legal { display: flex; gap: var(--s-5, 24px); align-self: end; }
+  @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
+
+  .page .foot { margin-top: 40px; }
+  .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
+  .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
+  .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
+  .rel { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  .rel a { display: flex; align-items: center; min-height: var(--tap); text-decoration: none; border-top: 1px solid var(--line); }
+  .static { padding: 0 24px; }
+  /* title block left-aligned with the commemoration date under the name (user 2026-11-17) */
+  .title { text-align: left; }
+  .title .feast { margin: 8px 0 0; font-size: 16px; line-height: 1.45; color: var(--quiet); }
+  /* phones: about 30 characters a line, justified text opened rivers -> ragged right (UX audit 2026-11-17) */
+  @media (max-width: 500px) { .prayer-text, .life { text-align: start; } }
+  /* the Aa button steps aside while reading downwards and returns on any upward scroll or at the end of the page */
+  .menu { transition: transform .3s ease, opacity .3s ease; }
+  .menu.away { transform: translateY(calc(100% + 40px)); opacity: 0; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .menu { transition: none; } }
+
+  /* the scrollbar's space is always reserved: opening the viewer (overflow hidden) no longer moves the page sideways */
+  html { scrollbar-gutter: stable; }
+  html.lb-lock, html.lb-lock body { overflow: hidden; }
+  html.lb-lock { background: #0C0A08; }        /* the reserved scrollbar strip takes the viewer's colour */
+  /* the whole icon fits on the first screen with the title (and the start of the prayer) under it: a tall icon is
+     shown narrower instead of pushing the text down; tap opens it full screen. --r = width / height (set inline) */
+  .icon .fig { position: relative; line-height: 0; margin: 0 auto; width: min(100%, calc((100vh - 260px) * var(--r, 1)));
+               width: min(100%, calc((100svh - 260px) * var(--r, 1))); }
+  .icon .fig img { cursor: zoom-in; -webkit-tap-highlight-color: transparent; }
+  .hs { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; -webkit-tap-highlight-color: transparent; }
+  .hs a { outline: none; }
+  .hs polygon { fill: rgba(255, 236, 190, 0); stroke: rgba(236, 208, 146, 0); stroke-width: 1; cursor: zoom-in;
+                transition: fill .35s ease, stroke .35s ease; }
+  .hs a:hover polygon, .hs a:focus-visible polygon { fill: rgba(255, 236, 190, .07); stroke: rgba(236, 208, 146, .9); }
+  .hs a:active polygon { fill: rgba(255, 236, 190, .14); }
+  @media (hover: none) {
+    .hs polygon { animation: hsReveal 3.4s ease .7s 1 both; }
+    @keyframes hsReveal { 0% { stroke: rgba(236, 208, 146, 0); } 18%, 62% { stroke: rgba(236, 208, 146, .8); } 100% { stroke: rgba(236, 208, 146, 0); } }
+  }
+  @media (prefers-reduced-motion: reduce) { .hs polygon { animation: none; stroke: rgba(236, 208, 146, .35); } }
+  .hs-hint { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 0; font-family: var(--font-ui);
+             font-size: 13px; line-height: 1.4; letter-spacing: .02em; color: var(--quiet); text-align: center; }
+  .hs-hint::before { content: ""; width: 14px; height: 14px; flex: none; border: 1px solid currentColor; border-radius: 50%;
+                     background: radial-gradient(circle, currentColor 0 2px, transparent 2.5px); opacity: .8; }
+  .lb { position: fixed; inset: 0; z-index: 60; touch-action: none; -webkit-user-select: none; user-select: none; }
+  .lb-bg { position: absolute; inset: 0; background: #0C0A08; opacity: 0; transition: opacity .45s ease; }
+  .lb.on .lb-bg { opacity: 1; }
+  .lb-stage { position: absolute; inset: 0; }
+  .lb-img { position: absolute; transform-origin: 0 0; will-change: transform; -webkit-user-drag: none; cursor: zoom-in;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+  .lb.zoomed .lb-img { cursor: grab; }
+  .lb-tiles { position: absolute; transform-origin: 0 0; pointer-events: none; will-change: transform; }
+  .lb-tiles.anim { transition: transform .5s cubic-bezier(.2, .8, .16, 1); }
+  .lb-tiles img { position: absolute; display: block; opacity: 0; transition: opacity .25s ease; -webkit-user-drag: none; }
+  .lb-tiles img.ok { opacity: 1; }
+  .lb-img.anim { transition: transform .5s cubic-bezier(.2, .8, .16, 1), opacity .36s ease; }
+  .lb-top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
+            padding: env(safe-area-inset-top) 6px 0 22px; height: calc(60px + env(safe-area-inset-top)); opacity: 0; transition: opacity .35s ease .1s; }
+  .lb-n { font: 400 12px/1 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--quiet); font-variant-numeric: tabular-nums; }
+  .lb-x { all: unset; width: 48px; height: 48px; display: grid; place-items: center; color: var(--ink); cursor: pointer; border-radius: 24px; }
+  .lb-x:focus-visible, .lb-arr:focus-visible, .lb-more:focus-visible { outline: 1px solid var(--quiet); outline-offset: 2px; }
+  .lb-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 24px calc(20px + env(safe-area-inset-bottom)); text-align: center;
+            opacity: 0; transition: opacity .3s ease .1s; }
+  .lb.on .lb-top, .lb.on .lb-cap { opacity: 1; }
+  .lb.on.bare .lb-top, .lb.on.bare .lb-cap, .lb.on.zoomed .lb-cap, .lb.on.zoomed .lb-arr { opacity: 0; pointer-events: none; }
+  .lb-t { margin: 0 auto; max-width: 30em; font: 400 18px/1.35 var(--font-serif); color: var(--ink); text-wrap: balance; }
+  .lb-more { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0 18px; border: 1px solid var(--line);
+             border-radius: 22px; font: 400 14px/1 var(--font-ui); letter-spacing: .03em; color: var(--quiet); text-decoration: none;
+             transition: color .2s, border-color .2s; }
+  .lb-more:hover { color: var(--ink); border-color: var(--quiet); }
+  .lb-arr { all: unset; position: absolute; top: 50%; width: 64px; height: 96px; margin-top: -48px; display: grid; place-items: center;
+            color: var(--ink); opacity: 0; transition: opacity .3s ease; cursor: pointer; }
+  .lb.on .lb-arr { opacity: .45; } .lb.on .lb-arr:hover { opacity: 1; }
+  .lb-prev { left: 12px; } .lb-next { right: 12px; }
+  @media (prefers-reduced-motion: reduce) { .lb-bg, .lb-img.anim, .lb-top, .lb-cap, .lb-arr { transition: none !important; } }
+  /* end of the page: the next icon as one card, previous + all icons as a small row (option B, 2026-11-17) */
+  .nb { margin: 36px 0 0; font-family: var(--font-ui); }
+  .nb-lab { margin: 0 0 12px; font: 400 12px/1 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--quiet); }
+  .nb-card { display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px; margin: 0 -14px; border-radius: 14px;
+             text-decoration: none; color: var(--ink); transition: background-color .25s; }
+  .nb-card:hover { background: rgba(255, 255, 255, .035); }
+  .nb-th { flex: none; width: 64px; line-height: 0; }
+  .nb-th picture { display: contents; }
+  .nb-th img { width: 100%; height: auto; aspect-ratio: var(--r); object-fit: contain; display: block; box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+               transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+  .nb-card:hover .nb-th img { transform: translateY(-2px); }
+  .nb-nm { flex: 1; min-width: 0; font: 400 20px/1.25 var(--font-rubric); text-wrap: balance; }
+  .nb-sec { display: block; margin-top: 6px; font: 400 13px/1.4 var(--font-ui); color: var(--quiet); }
+  .nb-arr { flex: none; color: var(--quiet); transition: transform .3s ease, color .2s; }
+  .nb-card:hover .nb-arr { transform: translateX(3px); color: var(--ink); }
+  .nb-row { display: flex; justify-content: space-between; margin: 10px 0 0; }
+  .nb-row a { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; font: 400 14px var(--font-ui); color: var(--quiet);
+              text-decoration: none; transition: color .2s; }
+  .nb-row a:hover { color: var(--ink); }
+  .back[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) { .nb-card, .nb-th img, .nb-arr { transition: none; } }
+  @view-transition { navigation: auto; }
+  @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+</style>
+</head>
+<body class="theme-church">
+<main class="page" id="page">
+<figure class="icon"><div class="fig" style="--r:0.6908"><picture><source type="image/avif" srcset="../../assets/img/091-480.avif 480w, ../../assets/img/091-800.avif 800w, ../../assets/img/091-1200.avif 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6908)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6908))"><img src="../../assets/img/091-800.webp" srcset="../../assets/img/091-480.webp 480w, ../../assets/img/091-800.webp 800w, ../../assets/img/091-1200.webp 1200w" sizes="(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6908)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6908))" alt="Икона: Преподобный Агапит Печерский, врач безмездный" width="1200" height="1737" decoding="async" fetchpriority="high"></picture></div></figure>
+<header class="title"><h1 lang="ru">Преподобный Агапит Печерский, врач безмездный</h1></header>
+<section class="more"><a class="back" href="../../icons/index.html">← Все иконы храма</a></section><footer class="foot">
+  <a class="foot-mark" href="https://www.hamburg-hram.de/" aria-label="hamburg-hram.de"><img src="../../assets/brand/church-logo-ondark.svg" alt="" width="28" height="50" loading="lazy" decoding="async"></a>
+  <div class="foot-txt" lang="ru">
+    <p class="foot-name">Храм святого праведного Иоанна Кронштадтского</p>
+    <p class="foot-sub">Православная церковь в Гамбурге</p>
+    <address>Tschaikowskyplatz 1, 20355 Hamburg<br><a href="https://www.hamburg-hram.de/">hamburg-hram.de</a></address>
+  </div>
+  <p class="foot-legal" lang="de"><a href="https://www.hamburg-hram.de/impressum">Impressum</a><a href="https://www.hamburg-hram.de/datenschutzerklaerung">Datenschutz</a></p>
+</footer>
+</main>
+
+<div class="menu" id="menu">
+  <div class="panel" id="panel" role="group" hidden>
+    <div class="size">
+      <span class="label" data-t="sizeRow"></span>
+      <span class="steppers">
+        <button class="step minus" id="smaller" type="button">A−</button>
+        <button class="step plus" id="bigger" type="button">A+</button>
+      </span>
+    </div>
+    <button class="row" id="lang" type="button"><span class="label" data-t="langRow"></span><span id="langValue"></span></button>
+    <button class="row" id="read" type="button"><span class="label" data-t="readRow"></span><span id="readValue"></span></button>
+  </div>
+  <button class="fab" id="fab" type="button" aria-expanded="false" aria-controls="panel">Aa</button>
+</div>
+
+<script>window.ICON={"id":"091","kind":"saint","name":{"ru":"Преподобный Агапит Печерский, врач безмездный","de":null},"short":{"ru":"Преподобный Агапит Печерский, врач безмездный","de":null},"feasts":[{"main":true,"ns":"06-14","os":"06-01","who":null}],"feastLine":{"ru":"Память 14 июня","de":"Gedenktag 14. Juni"},"feastsSource":"Месяцеслов РПЦ (составлено 2026-11-17), подлежит подтверждению настоятелем","prayer":{"ru":null,"de":null},"troparion":{"tone":null,"ru":null,"de":null},"kontakion":{"tone":null,"ru":null,"de":null},"life":{"ru":null,"de":null},"about":{"location":null,"depiction":null,"inscription":"Прп. Агапит Печерский","relic":null,"iconographer":null},"approved":null,"image":{"base":"../../assets/img/091","w":1200,"h":1737,"sizes":"(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6908)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6908))","alt":{"ru":"Икона: Преподобный Агапит Печерский, врач безмездный","de":null}},"zoom":{"img":"../../assets/img/091-1200.webp","img2x":"../../assets/img/091-1800.webp","w":1200,"h":1737,"tiles":{"base":"../../media/091/tiles","w":2359,"h":3415,"sf":[1,2,4,8],"box":[0,0,1,1]}},"related":[{"id":"087","ru":"Киот с иконами (обзор)","de":null}],"relTitle":{"ru":"Входит в состав","de":"Gehört zu"},"nav":{"prev":{"id":"036","ru":"(same pressed-metal design as I035)","de":null,"img":"../../assets/img/036-480","r":0.8397,"sec":{"ru":"Святые","de":"Heilige"}},"next":{"id":"026","ru":"Мученики Адриан и Наталия","de":"Die heilige Märtyrer Adrian und Natalia","img":"../../assets/img/026-480","r":0.7514,"sec":{"ru":"Святые","de":"Heilige"}}}};</script>
+<script>
+(() => {
+  // ---------- strings ----------
+  const T = {
+    ru: { prayer: 'Молитва', hymns: 'Тропарь и кондак', life: 'Житие кратко', about: 'Об иконе',
+          trop: t => `Тропарь, глас ${t}`, kont: t => `Кондак, глас ${t}`,
+          gapHymn: '[Текст — внести по утверждённому источнику]',
+          where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
+          gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
+          all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', langRow: 'Язык', readRow: 'Чтение',
+          other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
+          close: 'Закрыть настройки', missing: 'Икона не найдена.' },
+    de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',
+          trop: t => `Troparion, Ton ${t}`, kont: t => `Kontakion, Ton ${t}`,
+          gapHymn: '[Text in Vorbereitung]',
+          where: 'Ort in der Kirche', depiction: 'Darstellung', inscription: 'Inschrift', relic: 'Reliquie', painter: 'Ikonenmaler', number: 'Nummer',
+          gapWhere: '[Ort laut Kirchenplan]', gapPainter: '[Name, Jahr]',
+          all: '← Alle Ikonen der Kirche', church: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
+          nav: 'Leseeinstellungen', sizeRow: 'Schriftgröße', langRow: 'Sprache', readRow: 'Lesen',
+          other: 'Русский', readOn: 'Nur Text', readOff: 'Mit Ikone', smaller: 'Kleiner', bigger: 'Größer',
+          close: 'Einstellungen schließen', missing: 'Ikone nicht gefunden.',
+          noPrayerDe: 'Die deutsche Fassung dieses Gebets ist in Vorbereitung. Hier der russische Text.',
+          noLifeDe: 'Die deutsche Kurzvita ist in Vorbereitung. Hier der russische Text.' }
+  };
+
+  // ---------- state ----------
+  const params = new URLSearchParams(location.search);
+  const store = {
+    get(k) { try { return localStorage.getItem('iconguide.' + k); } catch { return null; } },
+    set(k, v) { try { localStorage.setItem('iconguide.' + k, v); } catch {} }
+  };
+  const SIZE_MIN = 16, SIZE_MAX = 28, SIZE_STEP = 2, READING_BOOST = 3;
+  const showGaps = false;      // prototype shows "[…]" gaps; production: ?gaps=0 behaviour by default
+  const browserDe = (navigator.language || '').toLowerCase().startsWith('de');
+  const state = {
+    lang: params.get('lang') || store.get('lang') || (browserDe ? 'de' : 'ru'),
+    size: Math.min(SIZE_MAX, Math.max(SIZE_MIN, Number(store.get('size')) || 20)),
+    reading: params.get('read') === '1',
+    panel: false
+  };
+  if (!T[state.lang]) state.lang = 'ru';
+
+  const icon = window.ICON;
+
+  // ---------- helpers ----------
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const pick = (obj, lang) => obj == null ? null : (typeof obj === 'string' ? obj : (obj[lang] ?? null));
+  const gap = text => showGaps ? `<span class="gap">${esc(text)}</span>` : '';
+  const paras = s => esc(s).replace(/\n\n/g, '<br><br>');
+  const hotspots = L => {
+    const H = icon.hotspots; if (!H) return '';
+    const nm = h => (L === 'de' && h.de) ? h.de : h.ru;
+    return `<svg class="hs" viewBox="0 0 100 100" preserveAspectRatio="none">` + H.items.map((h, k) =>
+      `<a href="${h.id ? `../${h.id}/index.html?lang=${L}` : '#'}" class="zoom" data-k="${k}" aria-label="${esc(nm(h))}"><title>${esc(nm(h))}</title><polygon points="${h.pts}" vector-effect="non-scaling-stroke"/></a>`).join('') + `</svg>`;
+  };
+  const viewer = (() => {
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const TT = { ru: { more: 'Открыть страницу', close: 'Закрыть', prev: 'Предыдущая', next: 'Следующая', of: 'из' },
+                 de: { more: 'Seite öffnen', close: 'Schließen', prev: 'Vorherige', next: 'Nächste', of: 'von' } };
+    let box = null, stage, items, k = 0, L0 = 'ru', from = null, cur = null, busy = false, pushed = false, srcEls = [];
+    let z = { s: 1, x: 0, y: 0 }, R = null;
+    // deep zoom: static IIIF level-0 tiles of the full-resolution master, loaded only for the visible part and only
+    // once the 1800 px image would be enlarged; a layer over the image that shares its transform
+    let tl = null, tlKey = new Set(), tlTimer = 0;
+    const dpr = () => Math.min(devicePixelRatio || 1, 3);
+    const regionPx = T => [(T.box[2] - T.box[0]) * T.w, (T.box[3] - T.box[1]) * T.h];
+    const maxZ = () => { const T = items && items[k] && items[k].tiles; if (!T || !R) return 4;
+      return Math.max(4, Math.min(12, regionPx(T)[0] / (R.w * dpr()))); };
+    const tilesClear = () => { clearTimeout(tlTimer); if (tl) tl.remove(); tl = null; tlKey = new Set(); };
+    const tilesSync = anim => { if (!tl || !cur) return; tl.classList.toggle('anim', !!anim); tl.style.transform = cur.style.transform; };
+    function tilesUpdate() {
+      const h = items[k], T = h && h.tiles; if (!T || !cur || z.s <= 1.01) return;
+      const [rw0, rh0] = regionPx(T), shown = R.w * z.s * dpr();
+      if (shown <= (cur.naturalWidth || 1800) * 1.1) return;                 // the loaded image is still sharp enough
+      let sf = 1; for (const f of T.sf) if (f <= rw0 / shown && f > sf) sf = f;
+      if (!tl) { tl = document.createElement('div'); tl.className = 'lb-tiles'; place(tl, R); stage.appendChild(tl); tilesSync(false); }
+      const [l, t, r, b] = T.box, fx = v => Math.min(1, Math.max(0, v));
+      const x0 = (l + fx((-R.x - z.x) / (R.w * z.s)) * (r - l)) * T.w, x1 = (l + fx((innerWidth - R.x - z.x) / (R.w * z.s)) * (r - l)) * T.w;
+      const y0 = (t + fx((-R.y - z.y) / (R.h * z.s)) * (b - t)) * T.h, y1 = (t + fx((innerHeight - R.y - z.y) / (R.h * z.s)) * (b - t)) * T.h;
+      const reg = 512 * sf;
+      for (let y = Math.floor(y0 / reg) * reg; y < Math.min(y1, T.h); y += reg)
+        for (let x = Math.floor(x0 / reg) * reg; x < Math.min(x1, T.w); x += reg) {
+          const key = sf + ':' + x + ',' + y; if (tlKey.has(key)) continue; tlKey.add(key);
+          const w = Math.min(reg, T.w - x), hh = Math.min(reg, T.h - y), im = new Image();
+          im.decoding = 'async'; im.alt = ''; im.draggable = false; im.style.zIndex = String(100 - sf);
+          Object.assign(im.style, { left: ((x / T.w - l) / (r - l) * 100) + '%', top: ((y / T.h - t) / (b - t) * 100) + '%',
+            width: (w / T.w / (r - l) * 100) + '%', height: (hh / T.h / (b - t) * 100) + '%' });
+          im.onload = () => im.classList.add('ok'); im.onerror = () => im.remove();   // fully transparent corners have no tile
+          im.src = `${T.base}/${x},${y},${w},${hh}/${Math.ceil(w / sf)},/0/default.webp`; tl.appendChild(im);
+        }
+    }
+    const tilesLater = () => { clearTimeout(tlTimer); tlTimer = setTimeout(tilesUpdate, 140); };
+    const nm = h => (L0 === 'de' && h.de) ? h.de : h.ru;
+    const capH = () => { const c = box && box.querySelector('.lb-cap'); return c ? c.offsetHeight : 120; };
+    const layout = h => {
+      const vw = innerWidth, vh = innerHeight, top = 60, bot = Math.max(capH() + 8, 96), side = vw < 700 ? 12 : 88;
+      const mw = vw - 2 * side, mh = vh - top - bot, s = Math.min(mw / h.w, mh / h.h, 2.2);
+      const w = h.w * s, ht = h.h * s; return { x: (vw - w) / 2, y: top + (mh - ht) / 2, w, h: ht };
+    };
+    const place = (im, r) => { Object.assign(im.style, { left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px' }); };
+    const pre = h => { if (h && !h._p) { h._p = new Image(); h._p.src = h.img; } };
+    const mk = h => { const im = new Image(); im.className = 'lb-img'; im.alt = nm(h); im.decoding = 'async'; im.draggable = false;
+      im.src = (h._p && h._p.complete) ? h._p.src : h.img; return im; };
+    const ready = im => Promise.race([im.decode ? im.decode().catch(() => {}) : Promise.resolve(), new Promise(r => setTimeout(r, 450))]);
+    const flip = (s, r) => `translate(${s.left - r.x}px, ${s.top - r.y}px) scale(${s.width / r.w}, ${s.height / r.h})`;
+    const visible = el => { if (!el) return null; const b = el.getBoundingClientRect();
+      return (b.width > 4 && b.bottom > 0 && b.top < innerHeight) ? b : null; };
+    const apply = (anim) => { cur.classList.toggle('anim', !!anim); cur.style.transform = `translate(${z.x}px, ${z.y}px) scale(${z.s})`;
+      box.classList.toggle('zoomed', z.s > 1.01);
+      if (z.s <= 1.01) tilesClear(); else { tilesSync(anim); tilesLater(); } };
+    const clamp = () => {
+      const vw = innerWidth, vh = innerHeight, w = R.w * z.s, h = R.h * z.s;
+      z.x = w <= vw ? (vw - w) / 2 - R.x : Math.min(-R.x, Math.max(vw - w - R.x, z.x));
+      z.y = h <= vh ? (vh - h) / 2 - R.y : Math.min(-R.y, Math.max(vh - h - R.y, z.y));
+      if (z.s <= 1.001) { z.s = 1; z.x = 0; z.y = 0; }
+    };
+    const zoomAt = (px, py, s) => {
+      const h = items[k]; if (s > 1 && h.img2x && !cur.dataset.hi) { cur.dataset.hi = 1; const hi = new Image(); hi.src = h.img2x;
+        (hi.decode ? hi.decode() : Promise.resolve()).then(() => { if (cur && cur.dataset.hi) cur.src = hi.src; }).catch(() => {}); }
+      const ix = (px - R.x - z.x) / z.s, iy = (py - R.y - z.y) / z.s;
+      z.s = s; z.x = px - R.x - ix * s; z.y = py - R.y - iy * s; clamp();
+    };
+    // tap / click steps: fitted -> 2.5x -> the master's full resolution (when tiles exist) -> fitted
+    const zoomStep = (px, py) => { const top = maxZ();
+      if (z.s < 2.4) zoomAt(px, py, Math.min(2.5, top));
+      else if (z.s < top - .1) zoomAt(px, py, top);
+      else z = { s: 1, x: 0, y: 0 }; };
+    function caption(anim) {
+      const h = items[k], t = TT[L0], n = items.length, c = box.querySelector('.lb-cap');
+      const fill = () => {
+        box.querySelector('.lb-n').textContent = n > 1 ? `${k + 1} ${t.of} ${n}` : '';
+        c.innerHTML = `<p class="lb-t" lang="${L0 === 'de' && h.de ? 'de' : 'ru'}">${esc(nm(h))}</p>` +
+          (h.id ? `<a class="lb-more" href="../${h.id}/index.html?lang=${L0}">${t.more}<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>` : '');
+        box.setAttribute('aria-label', nm(h)); c.style.opacity = '';
+      };
+      if (anim && !reduce) { c.style.opacity = 0; setTimeout(fill, 160); } else fill();
+    }
+    async function show(i, dir) {
+      if (busy) return; busy = true;
+      tilesClear(); const old = cur, h = items[i]; k = i; z = { s: 1, x: 0, y: 0 };
+      const im = mk(h); R = layout(h); place(im, R); im.style.opacity = 0;
+      im.style.transform = reduce ? 'none' : `translateX(${dir * 56}px)`; stage.appendChild(im);
+      caption(true); await ready(im); im.getBoundingClientRect();
+      im.classList.add('anim'); im.style.opacity = 1; im.style.transform = 'none';
+      if (old) { old.classList.add('anim'); old.style.opacity = 0;
+        old.style.transform = reduce ? 'none' : `translateX(${-dir * 56}px)` + (old.style.transform.includes('translateX') ? '' : ''); setTimeout(() => old.remove(), 460); }
+      cur = im; pre(items[(k + 1) % items.length]); pre(items[(k - 1 + items.length) % items.length]);
+      setTimeout(() => { busy = false; }, reduce ? 0 : 300);
+    }
+    const go = d => { if (items.length > 1) show((k + d + items.length) % items.length, d); };
+    async function open(list, i, el, lang, els) {
+      if (box) return;
+      items = list; k = i; L0 = lang; from = el; srcEls = els || [];
+      const t = TT[L0], n = items.length;
+      box = document.createElement('div'); box.className = 'lb'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
+      box.innerHTML = `<div class="lb-bg"></div><div class="lb-stage"></div>
+        <div class="lb-top"><span class="lb-n"></span><button class="lb-x" aria-label="${t.close}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div>
+        <div class="lb-cap"></div>` + (n > 1 && fine ? `<button class="lb-arr lb-prev" aria-label="${t.prev}"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="lb-arr lb-next" aria-label="${t.next}"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>` : '');
+      document.body.appendChild(box); stage = box.querySelector('.lb-stage');
+      document.documentElement.classList.add('lb-lock');
+      caption(false);
+      const h = items[k]; cur = mk(h); R = layout(h); place(cur, R); stage.appendChild(cur);
+      const src = visible(el);
+      if (src && !reduce) { cur.style.transform = flip(src, R); cur.style.opacity = 0; }
+      await ready(cur);
+      if (src && !reduce) { cur.style.opacity = 1; cur.getBoundingClientRect(); cur.classList.add('anim'); cur.style.transform = 'none'; }
+      box.getBoundingClientRect(); box.classList.add('on');
+      history.pushState({ lb: 1 }, ''); pushed = true;
+      box.querySelector('.lb-x').focus({ preventScroll: true });
+      wire(); pre(items[(k + 1) % n]); pre(items[(k - 1 + n) % n]);
+    }
+    function done() {
+      if (!box) return;
+      tilesClear(); const b = box, im = cur, target = visible(srcEls[k] || (k === 0 ? from : null));
+      b.classList.remove('on', 'zoomed'); z = { s: 1, x: 0, y: 0 };
+      if (im) { im.classList.add('anim');
+        if (target && !reduce) { im.style.transform = flip(target, R); }
+        else { im.style.opacity = 0; im.style.transform = reduce ? 'none' : 'scale(.96)'; } }
+      box = null; cur = null; pushed = false;
+      setTimeout(() => { b.remove(); document.documentElement.classList.remove('lb-lock'); }, reduce ? 0 : 480);
+      if (from) from.focus({ preventScroll: true });
+    }
+    const close = () => { if (!box) return; if (pushed) history.back(); else done(); };
+    addEventListener('popstate', () => { if (box) { pushed = false; done(); } });
+    addEventListener('resize', () => { if (box && cur) { tilesClear(); R = layout(items[k]); place(cur, R); z = { s: 1, x: 0, y: 0 }; apply(false); } });
+    document.addEventListener('keydown', e => {
+      if (!box) return;
+      if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') go(-1); else if (e.key === 'ArrowRight') go(1);
+    });
+    function wire() {
+      const P = new Map(); let g = null, lastTap = 0, lastXY = [0, 0], tapTimer = 0;
+      box.addEventListener('click', e => {
+        if (e.target.closest('.lb-x')) close();
+        else if (e.target.closest('.lb-prev')) go(-1);
+        else if (e.target.closest('.lb-next')) go(1);
+      });
+      box.addEventListener('wheel', e => { if (!cur || !fine) return; e.preventDefault();
+        zoomAt(e.clientX, e.clientY, Math.min(maxZ(), Math.max(1, z.s * (e.deltaY < 0 ? 1.15 : 1 / 1.15)))); apply(false); }, { passive: false });
+      stage.addEventListener('pointerdown', e => {
+        if (!cur || busy) return; stage.setPointerCapture(e.pointerId); P.set(e.pointerId, [e.clientX, e.clientY]);
+        if (P.size === 2) { const [a, b] = [...P.values()]; g = { pinch: true, d0: Math.hypot(a[0] - b[0], a[1] - b[1]), s0: z.s }; }
+        else if (P.size === 1) g = { x0: e.clientX, y0: e.clientY, t0: performance.now(), zx: z.x, zy: z.y, ax: null, onImg: e.target === cur };
+      });
+      stage.addEventListener('pointermove', e => {
+        if (!g || !P.has(e.pointerId)) return; P.set(e.pointerId, [e.clientX, e.clientY]);
+        if (g.pinch && P.size === 2) { const [a, b] = [...P.values()];
+          zoomAt((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, Math.min(maxZ(), Math.max(1, g.s0 * Math.hypot(a[0] - b[0], a[1] - b[1]) / g.d0))); apply(false); return; }
+        if (g.pinch) return;
+        const dx = e.clientX - g.x0, dy = e.clientY - g.y0;
+        if (z.s > 1.01) { z.x = g.zx + dx; z.y = g.zy + dy; clamp(); apply(false); return; }
+        if (!g.ax && Math.hypot(dx, dy) > 8) g.ax = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
+        if (g.ax === 'x') { const f = items.length > 1 ? 1 : .25; cur.classList.remove('anim'); cur.style.transform = `translateX(${dx * f}px)`; }
+        else if (g.ax === 'y') { cur.classList.remove('anim'); cur.style.transform = `translateY(${dy}px) scale(${1 - Math.min(Math.abs(dy) / 1600, .12)})`;
+          box.querySelector('.lb-bg').style.opacity = String(Math.max(.25, 1 - Math.abs(dy) / 500)); }
+      });
+      const end = e => {
+        if (!g || !P.has(e.pointerId)) return; P.delete(e.pointerId);
+        if (g.pinch) { if (P.size === 0) { g = null; if (z.s < 1.05) { z = { s: 1, x: 0, y: 0 }; apply(true); } } return; }
+        const dx = e.clientX - g.x0, dy = e.clientY - g.y0, dt = performance.now() - g.t0, v = Math.abs(dx) / Math.max(dt, 1);
+        const bg = box.querySelector('.lb-bg'); bg.style.opacity = '';
+        if (g.ax === 'x') {
+          if (items.length > 1 && (Math.abs(dx) > 64 || v > .45)) go(dx < 0 ? 1 : -1);
+          else { cur.classList.add('anim'); cur.style.transform = 'none'; }
+        } else if (g.ax === 'y') {
+          if (Math.abs(dy) > 110 || Math.abs(dy) / Math.max(dt, 1) > .6) close(); else { cur.classList.add('anim'); cur.style.transform = 'none'; }
+        } else if (dt < 300) {                                   // a tap
+          const now = performance.now(), near = Math.hypot(e.clientX - lastXY[0], e.clientY - lastXY[1]) < 40;
+          if (now - lastTap < 300 && near) { clearTimeout(tapTimer); lastTap = 0;            // double tap: zoom in / out
+            zoomStep(e.clientX, e.clientY); apply(true); }
+          else { lastTap = now; lastXY = [e.clientX, e.clientY]; const onImg = g.onImg;
+            tapTimer = setTimeout(() => {
+              if (!box) return;
+              if (!onImg && z.s <= 1.01) close();                                      // tap beside the image
+              else if (fine && onImg) { zoomStep(lastXY[0], lastXY[1]); apply(true); }
+              else if (onImg) box.classList.toggle('bare');                             // touch: hide / show the captions
+            }, fine ? 0 : 260); }
+        }
+        g = null;
+      };
+      stage.addEventListener('pointerup', end); stage.addEventListener('pointercancel', end);
+    }
+    return { open };
+  })();
+  (() => {                                                       // the Aa button steps aside while reading downwards
+    let y0 = scrollY, tick = false;
+    addEventListener('scroll', () => { if (tick) return; tick = true; requestAnimationFrame(() => { tick = false;
+      const m = document.getElementById('menu'), y = scrollY; if (!m) return;
+      const open = m.querySelector('.panel:not([hidden])'), end = y + innerHeight > document.documentElement.scrollHeight - 80;
+      if (Math.abs(y - y0) < 6) return;
+      m.classList.toggle('away', y > y0 && y > 120 && !open && !end); y0 = y; }); }, { passive: true });
+  })();
+  const zoomItems = () => (icon.hotspots ? icon.hotspots.items : []);
+  document.addEventListener('pointerdown', e => {               // warm the cache as soon as the image is touched
+    if (e.target.closest && e.target.closest('.icon .fig')) zoomItems().forEach(h => { if (!h._p) { h._p = new Image(); h._p.src = h.img; } });
+  }, { passive: true });
+  document.addEventListener('click', e => {
+    if (!e.target.closest) return;
+    const L = state.lang === 'de' ? 'de' : 'ru';
+    const a = e.target.closest('svg.hs a.zoom');
+    if (a) { e.preventDefault(); const els = [...document.querySelectorAll('svg.hs a.zoom')];
+      viewer.open(zoomItems(), +a.dataset.k, a, L, els); return; }
+    const im = e.target.closest('.icon .fig img');
+    if (im && icon.zoom) { e.preventDefault(); viewer.open([{ ...icon.zoom, ru: icon.short.ru, de: icon.short.de }], 0, im, L, [im]); }
+  });
+  const withInitial = text => `<span class="initial">${esc(text[0])}</span>${paras(text.slice(1))}`;
+
+  // ---------- render ----------
+  const page = document.getElementById('page');
+  function render() {
+    const L = state.lang, t = T[L];
+    document.documentElement.lang = L;
+    document.body.classList.toggle('reading', state.reading);
+    document.body.classList.toggle('large', state.size + (state.reading ? READING_BOOST : 0) > 22);
+    document.documentElement.style.setProperty('--prayer-size', (state.size + (state.reading ? READING_BOOST : 0)) + 'px');
+
+    if (!icon) { page.innerHTML = `<p class="missing">${esc(t.missing)}</p>`; return; }
+    document.title = `${pick(icon.short, L) || icon.short.ru} — ${t.church}`;
+
+    const prayer = pick(icon.prayer, L);
+    const prayerRu = icon.prayer.ru;
+    const I = icon.image;
+    const prayerShown = prayer || prayerRu;
+    const prayerLang = prayer ? L : 'ru';
+    const life = pick(icon.life, L);
+    const lifeShown = life || icon.life.ru;
+    const name = pick(icon.name, L) || icon.name.ru, short = pick(icon.short, L) || icon.short.ru, feast = pick(icon.feastLine, L);
+    const tropText = pick(icon.troparion, L), kontText = pick(icon.kontakion, L);
+    const hasHymns = tropText || kontText;
+    const a = icon.about;
+    const aboutRows = [
+      [t.where, a.location ? pick(a.location, L) : (showGaps ? t.gapWhere : null)],
+      [t.depiction, pick(a.depiction, L)],
+      [t.inscription, a.inscription],
+      [t.relic, pick(a.relic, L)],
+      [t.painter, a.iconographer || (showGaps ? t.gapPainter : null)],
+      [L === 'ru' ? 'Размер' : 'Größe', a.size ? a.size + (L === 'ru' ? ' см' : ' cm') : null],
+      [t.number, icon.id]
+    ].filter(r => r[1]);
+
+    page.innerHTML = `
+      ${I ? `<figure class="icon"><div class="fig" style="--r:${(I.w / I.h).toFixed(4)}"><picture><source type="image/avif" srcset="${I.base}-480.avif 480w, ${I.base}-800.avif 800w, ${I.base}-1200.avif 1200w" sizes="${I.sizes}"><img src="${I.base}-800.webp" srcset="${I.base}-480.webp 480w, ${I.base}-800.webp 800w, ${I.base}-1200.webp 1200w" sizes="${I.sizes}" alt="${esc(pick(I.alt, L) || I.alt.ru)}" width="${I.w}" height="${I.h}" decoding="async" fetchpriority="high"></picture>${hotspots(L)}</div>${icon.hotspots ? `<figcaption class="hs-hint">${esc(icon.hotspots.hint[L] || icon.hotspots.hint.ru)}</figcaption>` : ''}</figure>` : ''}
+      <header class="title">
+        <h1${pick(icon.name, L) ? '' : ' lang="ru"'}>${esc(name)}</h1>
+        ${feast ? `<p class="feast">${esc(feast)}</p>` : ''}
+      </header>
+      <p class="reading-head">${esc(short)}</p>
+
+      ${prayerShown ? `<section class="prayer" aria-labelledby="rubric">
+        <h2 class="rubric" id="rubric">${esc(t.prayer)}</h2>
+        ${!prayer && L !== 'ru' ? `<p class="note">${esc(t.noPrayerDe)}</p>` : ''}
+        <p class="prayer-text" lang="${prayerLang}">${withInitial(prayerShown.text)}</p>
+      </section>` : ''}
+
+      <section class="more">
+        ${hasHymns ? `<details>
+          <summary>${esc(t.hymns)}</summary>
+          <div class="body">
+            ${tropText ? `<p class="hymn-rubric">${esc(icon.troparion.tone ? t.trop(icon.troparion.tone) : t.trop('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(tropText)}</p>` : ''}
+            ${kontText ? `<p class="hymn-rubric">${esc(icon.kontakion.tone ? t.kont(icon.kontakion.tone) : t.kont('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(kontText)}</p>` : ''}
+          </div></details>` : ''}
+        ${lifeShown ? `<details>
+          <summary>${esc(t.life)}</summary>
+          <div class="body">
+            ${!life && L !== 'ru' ? `<p class="note">${esc(t.noLifeDe)}</p>` : ''}
+            <p class="life" lang="${life ? L : 'ru'}">${paras(lifeShown)}</p>
+          </div></details>` : ''}
+        ${(icon.related || []).length ? `<div class="rel-wrap"><p class="rel-h">${L === 'ru' ? icon.relTitle.ru : icon.relTitle.de}</p><ul class="rel">${icon.related.map(r => `<li><a href="../${r.id}/index.html?lang=${L}"${r.de && L === 'de' ? '' : ' lang="ru"'}>${esc(L === 'de' && r.de ? r.de : r.ru)}</a></li>`).join('')}</ul></div>` : ''}
+        ${icon.catalogue ? `<p class="cat"${icon.catalogue[L] ? '' : ' lang="ru"'}>${esc(icon.catalogue[L] || icon.catalogue.ru)}</p>` : ''}
+        ${(() => { const N = icon.nav || {}, nx = N.next, pv = N.prev, de = L === 'de';
+          const nm = o => esc(de && o.de ? o.de : o.ru), ln = o => de && o.de ? '' : ' lang="ru"';
+          const chev = d => `<svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="${d < 0 ? 'M12.5 4.5 7 10l5.5 5.5' : 'M7.5 4.5 13 10l-5.5 5.5'}" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+          return `<nav class="nb" aria-label="${de ? 'Weiter' : 'Дальше'}">` + (nx ? `<p class="nb-lab">${de ? 'Weiter' : 'Дальше'}</p><a class="nb-card" href="../${nx.id}/index.html?lang=${L}">` +
+            `<span class="nb-th" style="--r:${nx.r}"><picture><source type="image/avif" srcset="${nx.img}.avif" ><img src="${nx.img}.webp" alt="" loading="lazy" decoding="async"></picture></span>` +
+            `<span class="nb-nm"${ln(nx)}>${nm(nx)}${nx.sec ? `<span class="nb-sec"${de && nx.sec.de ? '' : ' lang="ru"'}>${esc(de && nx.sec.de ? nx.sec.de : nx.sec.ru)}</span>` : ''}</span><span class="nb-arr">${chev(1)}</span></a>` : '') +
+            `<div class="nb-row">${pv ? `<a href="../${pv.id}/index.html?lang=${L}" aria-label="${de ? 'Vorherige' : 'Предыдущая'}: ${nm(pv)}">${chev(-1)}<span>${de ? 'Vorherige' : 'Предыдущая'}</span></a>` : '<span></span>'}` +
+            `<a href="../../icons/index.html?lang=${L}">${de ? 'Alle Ikonen' : 'Все иконы'}</a></div></nav>`; })()}
+        <a class="back" hidden href="../../icons/index.html?lang=${L}">${esc(t.all)}</a>
+        <footer class="foot">  <a class="foot-mark" href="https://www.hamburg-hram.de/" aria-label="hamburg-hram.de"><img src="../../assets/brand/church-logo-ondark.svg" alt="" width="28" height="50" loading="lazy" decoding="async"></a>  <div class="foot-txt" lang="ru">    <p class="foot-name">Храм святого праведного Иоанна Кронштадтского</p>    <p class="foot-sub">Православная церковь в Гамбурге</p>    <address>Tschaikowskyplatz 1, 20355 Hamburg<br><a href="https://www.hamburg-hram.de/">hamburg-hram.de</a></address>  </div>  <p class="foot-legal" lang="de"><a href="https://www.hamburg-hram.de/impressum">Impressum</a><a href="https://www.hamburg-hram.de/datenschutzerklaerung">Datenschutz</a></p></footer>
+      </section>`;
+    renderMenu();
+  }
+
+  // ---------- menu C ----------
+  const $ = id => document.getElementById(id);
+  function renderMenu() {
+    const t = T[state.lang];
+    document.querySelectorAll('[data-t]').forEach(el => el.textContent = t[el.dataset.t]);
+    $('panel').setAttribute('aria-label', t.nav);
+    $('panel').hidden = !state.panel;
+    $('fab').textContent = state.panel ? '×' : 'Aa';
+    $('fab').setAttribute('aria-expanded', String(state.panel));
+    $('fab').setAttribute('aria-label', state.panel ? t.close : t.nav);
+    $('smaller').setAttribute('aria-label', t.smaller);
+    $('bigger').setAttribute('aria-label', t.bigger);
+    $('smaller').disabled = state.size <= SIZE_MIN;
+    $('bigger').disabled = state.size >= SIZE_MAX;
+    $('langValue').textContent = t.other;                    // shows the language you will switch TO
+    $('readValue').textContent = state.reading ? t.readOff : t.readOn;  // shows what tapping will do
+  }
+
+  function syncUrl() {
+    const p = new URLSearchParams(location.search);
+    p.set('lang', state.lang);
+    state.reading ? p.set('read', '1') : p.delete('read');
+    history.replaceState(null, '', '?' + p.toString());
+  }
+
+  $('fab').addEventListener('click', () => { state.panel = !state.panel; renderMenu(); });
+  $('smaller').addEventListener('click', () => { state.size = Math.max(SIZE_MIN, state.size - SIZE_STEP); store.set('size', state.size); render(); });
+  $('bigger').addEventListener('click', () => { state.size = Math.min(SIZE_MAX, state.size + SIZE_STEP); store.set('size', state.size); render(); });
+  $('lang').addEventListener('click', () => { state.lang = state.lang === 'ru' ? 'de' : 'ru'; store.set('lang', state.lang); syncUrl(); render(); $('lang').focus(); });
+  $('read').addEventListener('click', () => { state.reading = !state.reading; syncUrl(); render(); window.scrollTo({ top: 0 }); $('read').focus(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.panel) { state.panel = false; renderMenu(); $('fab').focus(); } });
+  document.addEventListener('click', e => { if (state.panel && !$('menu').contains(e.target)) { state.panel = false; renderMenu(); } });
+
+  render();
+})();
+</script>
+</body>
+</html>

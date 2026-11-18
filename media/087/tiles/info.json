@@ -1,0 +1,49 @@
+{
+ "@context": "http://iiif.io/api/image/3/context.json",
+ "id": "https://hamburg-hram.de/media/087/tiles",
+ "type": "ImageService3",
+ "protocol": "http://iiif.io/api/image",
+ "profile": "level0",
+ "width": 4538,
+ "height": 4708,
+ "tiles": [
+  {
+   "width": 512,
+   "scaleFactors": [
+    1,
+    2,
+    4,
+    8,
+    16
+   ]
+  }
+ ],
+ "preferredFormats": [
+  "webp"
+ ],
+ "extraFormats": [
+  "webp"
+ ],
+ "sizes": [
+  {
+   "width": 284,
+   "height": 295
+  },
+  {
+   "width": 568,
+   "height": 589
+  },
+  {
+   "width": 1135,
+   "height": 1177
+  },
+  {
+   "width": 2269,
+   "height": 2354
+  },
+  {
+   "width": 4538,
+   "height": 4708
+  }
+ ]
+}

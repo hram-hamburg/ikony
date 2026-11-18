@@ -1,0 +1,6 @@
+# permanent short URLs: /I/023 (as printed in the QR, capitals) and /i/023 are the same page
+RewriteEngine On
+RewriteRule ^I/(\d{3})/?$ /i/$1/ [R=301,L,NC]
+RewriteRule ^i/(\d{3})$ /i/$1/ [R=301,L]
+RewriteRule ^icons$ /icons/ [R=301,L]
+ErrorDocument 404 /404.html

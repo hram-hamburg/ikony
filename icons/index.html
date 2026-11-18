@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16120E">
+<title>Иконы нашего храма — Храм св. прав. Иоанна Кронштадтского, Гамбург</title>
+<link rel="preload" href="../assets/fonts/ptserif-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/monomakh-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="description" content="Иконы храма св. прав. Иоанна Кронштадтского в Гамбурге: молитвы, жития святых, дни памяти. Ikonen, Gebete und Viten der Heiligen.">
+<link rel="canonical" href="https://hamburg-hram.de/icons/">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 64px; scrollbar-gutter: stable; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-serif); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 1px solid var(--quiet); outline-offset: 3px; }
+  @view-transition { navigation: auto; }
+  @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 clamp(var(--s-5), 5vw, 56px); }
+
+  /* church text and the language label stand on the bottom line of the church mark */
+  .top { display: flex; justify-content: space-between; align-items: flex-end; padding-top: var(--s-5); gap: var(--s-4); }
+  .brand { display: inline-flex; align-items: flex-end; gap: var(--s-3); min-height: var(--tap); font: 400 12px/1 var(--font-ui);
+           letter-spacing: .14em; text-transform: uppercase; color: var(--quiet); }
+  .brand img { width: 20px; height: auto; flex: none; display: block; }
+  .brand span { line-height: 1.35; margin-bottom: -2px; }
+  .lang { all: unset; box-sizing: border-box; min-width: var(--tap); min-height: var(--tap); display: flex; align-items: flex-end; justify-content: flex-end;
+          margin-bottom: -2px;
+          font: 400 13px/1 var(--font-ui); letter-spacing: .14em; color: var(--quiet); cursor: pointer; transition: color .2s; }
+  .lang:hover { color: var(--ink); }
+  .lang:focus-visible { outline: 1px solid var(--quiet); outline-offset: 4px; }
+
+  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(var(--s-6), 6vw, 96px); align-items: center;
+          padding: clamp(var(--s-6), 5vw, 64px) 0 clamp(var(--s-7), 6vw, 88px); }
+  .hero h1 { margin: 0; font-family: var(--font-rubric); font-weight: 400; font-size: clamp(44px, 7vw, 96px); line-height: 1.02; text-wrap: balance; }
+  .hero h1 .ini { color: var(--rubric); }
+  .hero h1:focus { outline: none; }
+  .lede { margin: var(--s-4) 0 0; font-size: clamp(18px, 1.6vw, 21px); line-height: 1.5; color: var(--quiet); }
+
+  .search { position: relative; max-width: 480px; margin: var(--s-6) 0 0; }
+  .search .field { display: flex; align-items: center; gap: var(--s-3); padding: 0 var(--s-4); border: 1px solid var(--line); border-radius: 28px;
+                   transition: border-color .25s, border-radius .2s; cursor: text; background: var(--bg); }
+  .search .field:focus-within { border-color: var(--quiet); }
+  .search.open .field { border-radius: 24px 24px 0 0; border-bottom-color: transparent; }
+  .search svg { flex: none; color: var(--quiet); }
+  .search input { all: unset; flex: 1; min-width: 0; height: 56px; font: 400 18px var(--font-serif); color: var(--ink); text-align: left; }
+  .search input::placeholder { color: var(--quiet); opacity: .9; }
+  .search input::-webkit-search-cancel-button { filter: invert(.6); }
+  .sug { position: absolute; z-index: 20; left: 0; right: 0; top: 100%; margin: 0; padding: var(--s-1) 0 var(--s-2); list-style: none; text-align: left;
+         background: var(--pill); border: 1px solid var(--quiet); border-top: 0; border-radius: 0 0 24px 24px;
+         box-shadow: 0 18px 40px rgba(0, 0, 0, .45); }
+  .sug[hidden] { display: none; }
+  .sug a { display: flex; align-items: center; gap: var(--s-3); min-height: 56px; padding: var(--s-1) var(--s-4); }
+  .sug a[aria-selected="true"], .sug a:hover { background: #2A221B; }
+  .sug .th { flex: none; width: 36px; height: 44px; display: grid; place-items: center; }
+  .sug img { max-width: 36px; max-height: 44px; width: auto; height: auto; display: block; }
+  .sug .nm { flex: 1; font-size: 16px; line-height: 1.3; }
+  .sug mark { background: none; color: #fff8ea; text-decoration: underline; text-decoration-color: var(--rubric); text-underline-offset: 3px; }
+  .sug .all { justify-content: center; min-height: var(--tap); font: 400 14px var(--font-ui); color: var(--quiet); }
+  .sug .none { padding: var(--s-4); color: var(--quiet); font-size: 16px; }
+
+  .patron { justify-self: end; width: 100%; max-width: min(560px, calc((100vh - 260px) * var(--r))); display: block; }
+  .patron .ph { display: block; aspect-ratio: var(--r); background: #1D1813; overflow: hidden; transition: background-color .6s ease; }
+  .patron img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s cubic-bezier(.2, .8, .2, 1); }
+  .patron picture { display: contents; }
+  .patron:hover img { transform: scale(1.015); }
+  .patron .cap { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--s-4);
+                 margin: calc(var(--s-4) - var(--ib, 0%)) var(--ir, 0%) 0 var(--il, 0%); }
+  .patron .who { display: flex; flex-direction: column-reverse; gap: var(--s-1); }
+  .patron small { font: 400 13px/1.4 var(--font-ui); color: var(--rubric); }
+  /* the saint's name in Monomakh, as on the icon page; quiet colour like the tagline so it does not compete with the title */
+  .patron b { font: 400 22px/1.25 var(--font-rubric); color: var(--quiet); text-wrap: balance; }
+  .patron .who { min-width: 0; }
+  .patron .day { flex: none; font: 400 13px/1.4 var(--font-ui); color: var(--quiet); text-align: right; white-space: nowrap; }
+
+  .bar { position: sticky; top: 0; z-index: 5; background: color-mix(in srgb, var(--bg) 90%, transparent);
+         -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .tabs { display: flex; gap: var(--s-1); overflow-x: auto; scrollbar-width: none; margin: 0 calc(-1 * var(--s-3)); }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tabs a { flex: none; display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 var(--s-3); font: 400 15px var(--font-ui);
+            color: var(--quiet); border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+  .tabs a:hover { color: var(--ink); }
+  .tabs a[aria-current] { color: var(--ink); border-color: var(--rubric); }
+
+  .sec { padding: var(--s-7) 0 0; }
+  .sec[hidden] { display: none; }
+  .sec h2 { margin: 0 0 var(--s-5); font: 400 13px/1.4 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--quiet); }
+  .sec h2 span { margin-left: var(--s-3); font-variant-numeric: tabular-nums; }   /* opacity .7 gave 3.76:1 (axe) */
+
+  .wall { --row: 168px; display: flex; flex-wrap: wrap; gap: var(--s-6) var(--s-4); list-style: none; margin: 0; padding: 0; }
+  .wall::after { content: ""; flex: 999 1 0; }
+  .wall li { flex: var(--r) 1 calc(var(--r) * var(--row)); min-width: 0; max-width: calc(var(--r) * var(--row) * 1.5); }
+  .wall li[hidden] { display: none; }
+  .wall .ph { display: block; aspect-ratio: var(--r); background: #1D1813; overflow: hidden; transition: background-color .6s ease; }
+  .ph:has(img.ok) { background-color: transparent; }
+  .wall picture { display: contents; }
+  .wall img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .7s ease, filter .4s ease; }
+  .wall img.ok { opacity: 1; }
+  .wall a:hover img { filter: brightness(1.06); }
+  .wall .nm { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: var(--s-2);
+              font-size: 15px; line-height: 1.38; text-wrap: pretty; transition: color .2s; }
+  .wall a:hover .nm { color: #fff8ea; }
+  @media (prefers-reduced-motion: reduce) { .wall img { transition: none; } }
+  .empty { padding: var(--s-7) 0; text-align: center; font: 400 17px var(--font-serif); color: var(--quiet); }
+  .empty[hidden] { display: none; }
+
+  /* back to top: same pill as the icon page's Aa button, after ~1.5 screens */
+  .up { all: unset; box-sizing: border-box; position: fixed; z-index: 15; right: max(16px, calc((100vw - 1280px) / 2 + 16px));
+        bottom: calc(20px + env(safe-area-inset-bottom)); width: 48px; height: 48px; display: grid; place-items: center; border-radius: 24px;
+        background: var(--pill); border: 1px solid var(--line); color: var(--ink); cursor: pointer; box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+        opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s ease, transform .25s ease, border-color .2s; }
+  .up.on { opacity: 1; transform: none; pointer-events: auto; }
+  .up:hover { border-color: var(--quiet); }
+  .up:focus-visible { outline: 1px solid var(--quiet); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { .up { transition: none; transform: none; } }
+
+  @media (min-width: 900px) { .wall { --row: 236px; gap: var(--s-7) var(--s-6); } }
+  /* phones and narrow windows: the "Книга" header */
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: minmax(0, 1fr); gap: var(--s-6); text-align: center; padding: var(--s-6) 0 var(--s-7); }
+    .search { margin: var(--s-6) auto 0; }
+    .patron { justify-self: stretch; max-width: none; display: flex; align-items: center; gap: var(--s-4); padding: var(--s-4);
+              border: 1px solid var(--line); border-radius: var(--radius-panel); text-align: left; }
+    .patron .ph { flex: none; width: 76px; }
+    .patron .cap { display: block; margin: 0; }
+    .patron .who { flex-direction: column; }
+    .patron small { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    .patron b { display: block; margin-top: var(--s-1); font: 400 21px/1.25 var(--font-rubric); }
+    .patron .day { display: block; margin-top: var(--s-1); text-align: left; white-space: normal; }
+    .brand span { max-width: 15em; }
+  }
+
+  /* footer: church mark + the parish's name and address (one block, the same on every page) */
+  .foot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-4, 16px) var(--s-5, 24px); align-items: start;
+          margin-top: clamp(48px, 10vw, 144px); padding: var(--s-6, 32px) 0 calc(var(--s-6, 32px) + env(safe-area-inset-bottom));
+          border-top: 1px solid var(--line); font: 400 13px/1.55 var(--font-ui); color: var(--quiet); text-align: left; }
+  .foot p, .foot address { margin: 0; font-style: normal; }
+  .foot-mark { display: grid; justify-items: center; width: 48px; min-height: 48px; margin: -2px -10px 0; }
+  .foot-mark img { display: block; width: 28px; height: auto; }
+  .foot-name { color: var(--ink); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; }
+  .foot-sub { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; margin-bottom: 10px !important; }
+  .foot address a, .foot-legal a { display: inline-flex; align-items: center; min-height: 48px; color: var(--quiet); text-decoration: underline;
+          text-decoration-color: var(--line); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+  .foot address a { min-height: 48px; margin: -14px 0; }
+  .foot a:hover { color: var(--ink); text-decoration-color: var(--quiet); }
+  .foot-legal { display: flex; gap: var(--s-5, 24px); align-self: end; }
+  @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
+</style>
+</head>
+<body class="theme-church">
+<div class="wrap">
+  <header class="top"><a class="brand" href="https://hamburg-hram.de/"><img src="../assets/brand/church-logo-ondark.svg" alt="" width="20" height="36"><span data-t="church"></span></a>
+    <button class="lang" id="lang" type="button"></button></header>
+  <section class="hero">
+    <div class="intro">
+      <h1 id="title" tabindex="-1"></h1>
+      <p class="lede" data-t="lede"></p>
+      <div class="search" id="search">
+        <label class="field"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <input id="q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sug"></label>
+        <ul class="sug" id="sug" role="listbox" hidden></ul>
+      </div>
+    </div>
+    <div id="patron"></div>
+  </section>
+</div>
+<div class="bar" id="bar"><div class="wrap"><nav class="tabs" id="tabs"></nav></div></div>
+<main class="wrap" id="list"></main>
+<div class="wrap"><footer class="foot">
+  <a class="foot-mark" href="https://www.hamburg-hram.de/" aria-label="hamburg-hram.de"><img src="../assets/brand/church-logo-ondark.svg" alt="" width="28" height="50" loading="lazy" decoding="async"></a>
+  <div class="foot-txt" lang="ru">
+    <p class="foot-name">Храм святого праведного Иоанна Кронштадтского</p>
+    <p class="foot-sub">Православная церковь в Гамбурге</p>
+    <address>Tschaikowskyplatz 1, 20355 Hamburg<br><a href="https://www.hamburg-hram.de/">hamburg-hram.de</a></address>
+  </div>
+  <p class="foot-legal" lang="de"><a href="https://www.hamburg-hram.de/impressum">Impressum</a><a href="https://www.hamburg-hram.de/datenschutzerklaerung">Datenschutz</a></p>
+</footer></div>
+<button class="up" id="up" type="button"><svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M10 16V4M5 9l5-5 5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<script src="../assets/icons-data.js"></script>
+<script>(() => {
+  const T = {
+    ru: { church: 'Храм св. прав. Иоанна Кронштадтского', church2: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
+          title: 'Иконы нашего храма', lede: 'Иконы, молитвы и жития святых.', search: 'Имя святого', empty: 'Ничего не найдено',
+          patron: 'Покровитель храма', up: 'Наверх', other: 'DE', otherName: 'Deutsch', all: n => `Показать все (${n})` },
+    de: { church: 'Kirche des hl. Johannes von Kronstadt', church2: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
+          title: 'Ikonen unseres Gotteshauses', lede: 'Ikonen, Gebete und Viten der Heiligen.', search: 'Name des Heiligen', empty: 'Nichts gefunden',
+          patron: 'Patron unserer Kirche', up: 'Nach oben', other: 'RU', otherName: 'Русский', all: n => `Alle anzeigen (${n})` } };
+  const S = window.SECTIONS, I = window.ICONS, P = window.PATRON;
+  const params = new URLSearchParams(location.search);
+  const store = { get(k) { try { return localStorage.getItem('iconguide.' + k); } catch { return null; } },
+                  set(k, v) { try { localStorage.setItem('iconguide.' + k, v); } catch {} } };
+  let lang = params.get('lang') || store.get('lang') || ((navigator.language || '').toLowerCase().startsWith('de') ? 'de' : 'ru');
+  if (!T[lang]) lang = 'ru';
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const fold = s => String(s || '').toLowerCase().replace(/ё/g, 'е').replace(/[̀́]/g, '').replace(/ѣ/g, 'е').replace(/і/g, 'и').replace(/ъ(?=\s|$)/g, '');
+  const $ = id => document.getElementById(id);
+  const nm = i => i.n[lang] || i.n.ru;
+  const href = i => `../i/${i.id}/index.html?lang=${lang}`;
+  const pic = (i, sizes, lazy, ws) => `<picture><source type="image/avif" srcset="${ws.map(w => `${i.t}-${w}.avif ${w}w`).join(', ')}" sizes="${sizes}">` +
+    `<img src="${i.t}-${ws[0]}.webp" srcset="${ws.map(w => `${i.t}-${w}.webp ${w}w`).join(', ')}" sizes="${sizes}" alt="" ${lazy ? 'loading="lazy"' : 'fetchpriority="high"'} decoding="async" width="${Math.round(i.r * 400)}" height="400"></picture>`;
+  const card = i => `<li style="--r:${i.r}" data-ix="${i.ix}"><a href="${href(i)}"><span class="ph">${pic(i, '(max-width: 600px) 45vw, 340px', true, [480, 800])}</span><span class="nm"${i.n[lang] ? '' : ' lang="ru"'}>${esc(nm(i))}</span></a></li>`;
+  const hits = q => { const qn = /^\d{1,3}$/.test(q) ? q.padStart(3, '0') : null; return I.filter(i => !q || (qn ? i.id === qn : i.f.includes(q))); };
+  function render() {
+    const t = T[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-t]').forEach(el => el.textContent = t[el.dataset.t]);
+    $('title').innerHTML = `<span class="ini">${esc(t.title[0])}</span>${esc(t.title.slice(1))}`;
+    $('lang').textContent = t.other; $('lang').setAttribute('aria-label', t.otherName); $('lang').lang = t.other.toLowerCase();
+    document.title = t.title + ' — ' + t.church2;
+    $('up').setAttribute('aria-label', t.up); $('up').title = t.up;
+    $('q').placeholder = t.search; $('q').setAttribute('aria-label', t.search);
+    if (P) $('patron').innerHTML = `<a class="patron" style="--r:${P.r}${P.ins ? `;--il:${P.ins[0]}%;--ir:${P.ins[2]}%;--ib:${(P.ins[3] / P.r).toFixed(2)}%` : ''}" href="${href(P)}"><span class="ph">${pic(P, '(max-width: 860px) 76px, 560px', false, [480, 800, 1200])}</span>` +
+      `<span class="cap"><span class="who"><small>${t.patron}</small><b${P.n[lang] ? '' : ' lang="ru"'}>${esc(P.n[lang] || P.n.ru)}</b></span>` +
+      (P.f && (P.f[lang] || P.f.ru) ? `<span class="day">${esc(P.f[lang] || P.f.ru)}</span>` : '') + `</span></a>`;
+    $('tabs').innerHTML = S.map(s => `<a href="#s-${s.key}" data-k="${s.key}">${esc(s.nav[lang])}</a>`).join('');
+    $('list').innerHTML = S.map(s => {
+      const its = I.filter(i => i.s === s.key);
+      return `<section class="sec" id="s-${s.key}" aria-labelledby="h-${s.key}"><h2 id="h-${s.key}">${esc(s[lang])}<span>${its.length}</span></h2><ul class="wall">${its.map(card).join('')}</ul></section>`;
+    }).join('') + `<p class="empty" id="empty" hidden>${esc(t.empty)}</p>`;
+    document.querySelectorAll('.ph img').forEach(im => { const ok = () => im.classList.add('ok'); im.complete ? ok() : im.addEventListener('load', ok, { once: true }); });
+    filter(); spy();
+  }
+  function filter() {
+    const q = fold($('q').value.trim()), keep = new Set(hits(q).map(i => i.ix));
+    let shown = 0;
+    $('list').querySelectorAll('.sec').forEach(sec => {
+      let n = 0;
+      sec.querySelectorAll('li').forEach(li => { const hit = keep.has(+li.dataset.ix); li.hidden = !hit; n += hit; });
+      sec.hidden = !n; shown += n;
+    });
+    $('empty').hidden = shown > 0;
+  }
+  // ---- suggestions: up to 6 icons as you type; arrows + Enter, or tap; Enter without a choice shows all results
+  let sel = -1, list = [];
+  const mark = (s, q) => { const f = fold(s), k = q ? f.indexOf(q) : -1;
+    return k < 0 ? esc(s) : esc(s.slice(0, k)) + '<mark>' + esc(s.slice(k, k + q.length)) + '</mark>' + esc(s.slice(k + q.length)); };
+  function suggest() {
+    const raw = $('q').value.trim(), q = fold(raw), box = $('sug'), t = T[lang];
+    if (!q) { close(); return; }
+    const all = hits(q); list = all.slice(0, 6); sel = -1;
+    box.innerHTML = list.length ? list.map((i, k) => `<li role="presentation"><a role="option" id="sug-${k}" aria-selected="false" href="${href(i)}"><span class="th">${pic(i, '36px', false, [480])}</span><span class="nm"${i.n[lang] ? '' : ' lang="ru"'}>${mark(nm(i), q)}</span></a></li>`).join('') +
+      (all.length > list.length ? `<li role="presentation"><a class="all" href="#bar" data-all="1">${t.all(all.length)}</a></li>` : '')
+      : `<li class="none" role="presentation">${esc(t.empty)}</li>`;
+    box.hidden = false; $('search').classList.add('open'); $('q').setAttribute('aria-expanded', 'true');
+  }
+  function close() { $('sug').hidden = true; $('search').classList.remove('open'); $('q').setAttribute('aria-expanded', 'false'); $('q').removeAttribute('aria-activedescendant'); sel = -1; }
+  function move(d) {
+    const opts = [...$('sug').querySelectorAll('a[role=option]')]; if (!opts.length) return;
+    sel = (sel + d + opts.length) % opts.length;
+    opts.forEach((a, k) => a.setAttribute('aria-selected', k === sel ? 'true' : 'false'));
+    $('q').setAttribute('aria-activedescendant', opts[sel].id);
+  }
+  // gentle scroll to the results. The browser's own smooth scroll: it stops the moment the user touches, wheels or
+  // presses a key (the earlier frame-by-frame glide overrode the finger for up to 900 ms; scroll audit 2026-11-17)
+  // Chrome does not cancel a programmatic smooth scroll on wheel input (measured), so any wheel / touch / key stops it
+  let gliding = false, glideT = 0;
+  const stopGlide = () => { if (!gliding) return; gliding = false; clearTimeout(glideT); scrollTo({ top: scrollY, behavior: 'instant' }); };
+  ['wheel', 'touchstart', 'keydown'].forEach(ev => addEventListener(ev, stopGlide, { passive: true }));
+  addEventListener('scrollend', () => { gliding = false; });
+  function glide(el) {
+    const y = Math.max(0, el.getBoundingClientRect().top + scrollY);
+    if (reduce) { scrollTo(0, y); return; }
+    scrollTo({ top: y, behavior: 'smooth' });
+    gliding = true; clearTimeout(glideT); glideT = setTimeout(() => { gliding = false; }, 1500);
+  }
+  const showAll = () => { close(); $('q').blur(); glide($('bar')); };
+  $('q').addEventListener('input', () => { filter(); suggest(); });
+  $('q').addEventListener('focus', () => { if ($('q').value.trim()) suggest(); });
+  $('q').addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown') { e.preventDefault(); if ($('sug').hidden) suggest(); move(1); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+    else if (e.key === 'Escape') close();
+    else if (e.key === 'Enter') { e.preventDefault();
+      if (sel >= 0) location.href = list[sel] ? href(list[sel]) : location.href; else if ($('q').value.trim()) showAll(); }
+  });
+  $('sug').addEventListener('click', e => { const a = e.target.closest('a[data-all]'); if (a) { e.preventDefault(); showAll(); } });
+  document.addEventListener('pointerdown', e => { if (!e.target.closest('#search')) close(); });
+  // section tabs: the same gentle scroll
+  $('tabs').addEventListener('click', e => { const a = e.target.closest('a'); if (!a) return; e.preventDefault();
+    const s = document.querySelector(a.getAttribute('href')); if (s) { glide(s); history.replaceState(null, '', location.search + a.getAttribute('href')); } });
+  let io = null;
+  function spy() {
+    if (io) io.disconnect();
+    const links = [...$('tabs').querySelectorAll('a')];
+    // the active tab is brought into view by scrolling ONLY the tab strip sideways. scrollIntoView() also scrolled the
+    // page: the sticky tab sat inside html's scroll-padding-top, so every section change pulled the page 64 px back
+    // (measured: 35 reversed frames in one downward read; scroll audit 2026-11-17)
+    const strip = $('tabs');
+    io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) links.forEach(a => {
+      const on = a.dataset.k === e.target.id.slice(2); if (on === a.hasAttribute('aria-current')) return;
+      a.toggleAttribute('aria-current', on);
+      if (on && strip.scrollWidth > strip.clientWidth) {
+        const l = a.offsetLeft - strip.offsetLeft, r = l + a.offsetWidth, v0 = strip.scrollLeft, v1 = v0 + strip.clientWidth;
+        if (l < v0 || r > v1) strip.scrollTo({ left: l < v0 ? l - 12 : r - strip.clientWidth + 12, behavior: reduce ? 'auto' : 'smooth' });
+      } }); }), { rootMargin: '-80px 0px -60% 0px' });
+    document.querySelectorAll('.sec').forEach(s => io.observe(s));
+  }
+  // back to top: appears after about 1.5 screens, a real button (Tab + Enter)
+  const up = $('up');
+  addEventListener('scroll', () => { up.classList.toggle('on', scrollY > innerHeight * 1.5); }, { passive: true });
+  // focus goes to the title, not the search field: focusing an input would open the phone keyboard
+  up.addEventListener('click', () => { glide(document.body); $('title').focus({ preventScroll: true }); });
+  I.forEach((i, ix) => { i.ix = ix; i.f = fold([i.n.ru, i.n.de, i.k].filter(Boolean).join(' ')); });
+  $('lang').addEventListener('click', () => {
+    lang = lang === 'ru' ? 'de' : 'ru'; store.set('lang', lang); const p = new URLSearchParams(location.search); p.set('lang', lang);
+    history.replaceState(null, '', '?' + p.toString() + location.hash); close(); render(); });
+  render();
+})();</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#16120E">
+<title>Икона — Храм св. прав. Иоанна Кронштадтского, Гамбург</title>
+<link rel="preload" href="../../assets/fonts/ptserif-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/monomakh-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../../assets/tokens.css">
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<meta name="description" content="Эта икона сейчас не выставлена в храме.">
+<style>
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-serif); }
+  a, button { color: inherit; }
+  :focus-visible { outline: 2px solid var(--quiet); outline-offset: 2px; }
+
+  .page { max-width: var(--column); margin: 0 auto; padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
+
+  /* Icon: as wide as the text column */
+  .icon { margin: 0; padding: 24px 24px 0; }
+  .icon img { width: 100%; height: auto; display: block; }
+
+  /* Title B: saint's name in Monomakh, centred; date in PT Serif */
+  .title { padding: 22px 24px 0; text-align: center; }
+  .title h1 { margin: 0; font-family: var(--font-rubric); font-weight: 400; font-size: 26px; line-height: 1.25; color: var(--ink); text-wrap: balance; }
+  .title .feast { margin: 10px 0 0; font-size: 16px; color: var(--quiet); }
+
+  .reading-head { margin: 0; padding: 26px 24px 0; font-size: 15px; color: var(--quiet); text-align: center; }
+
+  /* Prayer: justified block like a prayer book, red initial */
+  .prayer { padding: 30px 24px 8px; }
+  .rubric { margin: 0 0 22px; font-family: var(--font-rubric); font-weight: 400; font-size: 30px; line-height: 1.25; text-align: center; color: var(--rubric); }
+  .note { margin: 0 0 18px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-family: var(--font-ui); font-size: 14px; line-height: 1.5; color: var(--quiet); }
+  .prayer-text {
+    margin: 0; font-weight: 700; font-size: var(--prayer-size, 20px); line-height: 1.55;
+    text-align: justify; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto;
+    hyphenate-limit-chars: 6 3 3; text-wrap: pretty;
+  }
+  body.large .prayer-text { text-align: start; }   /* few words per line: justify would open rivers */
+  .initial { color: var(--rubric); font-size: 1.22em; line-height: 1; }
+
+  /* More: native disclosure widgets */
+  .more { padding: 20px 24px 0; font-family: var(--font-ui); }
+  .more details { border-top: 1px solid var(--line); }
+  .more details:last-of-type { border-bottom: 1px solid var(--line); }
+  .more summary { list-style: none; min-height: 56px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 16px; }
+  .more summary::-webkit-details-marker { display: none; }
+  .more summary::after { content: "+"; color: var(--quiet); font-size: 18px; }
+  .more details[open] summary::after { content: "−"; }
+  .more .body { padding: 0 0 22px; }
+  .hymn-rubric { margin: 0 0 8px; font-family: var(--font-rubric); font-size: 21px; text-align: center; color: var(--rubric); }
+  .hymn { margin: 0 0 22px; font-family: var(--font-serif); font-size: 18px; line-height: 1.6; text-align: center; }
+  .gap { color: var(--quiet); }
+  .life { margin: 0; font-family: var(--font-serif); font-size: calc(var(--prayer-size, 20px) - 2px); line-height: 1.6; text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: pretty; }
+  .about { margin: 0; display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 10px 12px; font-size: 15px; line-height: 1.45; }
+  .about dt { color: var(--quiet); }
+  .about dd { margin: 0; }
+
+  .back { display: inline-flex; align-items: center; min-height: var(--tap); margin-top: 12px; font-family: var(--font-ui); font-size: 15px; text-decoration: none; color: var(--quiet); }
+  .church { margin: 36px 0 0; text-align: center; font-family: var(--font-ui); font-size: 13px; letter-spacing: .02em; line-height: 1.5; color: var(--quiet); }
+
+  /* Reading mode: prayer only */
+  body.reading .icon, body.reading .title, body.reading .more { display: none; }
+  body:not(.reading) .reading-head { display: none; }
+
+  /* Menu C: one round "Aa" button, opens a small panel */
+  .menu { position: fixed; z-index: 10;
+          right: max(16px, calc((100vw - var(--column)) / 2 + 16px));
+          bottom: calc(22px + env(safe-area-inset-bottom));
+          display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
+          font-family: var(--font-ui); font-size: 16px; color: var(--ink); }
+  .fab { all: unset; width: 52px; height: 52px; border: 1px solid var(--line); border-radius: 26px; background: var(--pill);
+         display: flex; align-items: center; justify-content: center; cursor: pointer; font-family: var(--font-serif); font-size: 20px; box-sizing: border-box; }
+  .fab:focus-visible { outline: 2px solid var(--quiet); outline-offset: 2px; }
+  .panel { width: 264px; padding: 0 16px; border: 1px solid var(--line); border-radius: var(--radius-panel); background: var(--pill); }
+  .panel[hidden] { display: none; }
+  .row { all: unset; box-sizing: border-box; width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+  .row + .row, .size + .row { border-top: 1px solid var(--line); }
+  .row:focus-visible { outline: 2px solid var(--quiet); outline-offset: -2px; }
+  .size { display: flex; align-items: center; justify-content: space-between; min-height: 56px; }
+  .label { color: var(--quiet); }
+  .steppers { display: flex; margin-right: -8px; }
+  .step { all: unset; width: var(--tap); height: var(--tap); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .step:focus-visible { outline: 2px solid var(--quiet); outline-offset: -2px; }
+  .step[disabled] { opacity: .35; cursor: default; }
+  .step.minus { font-size: 15px; } .step.plus { font-size: 20px; }
+
+  @media (prefers-reduced-motion: no-preference) { .panel { animation: rise .14s ease-out; } }
+  @keyframes rise { from { opacity: 0; transform: translateY(4px); } }
+  .missing { padding: 64px 24px; font-family: var(--font-ui); color: var(--quiet); text-align: center; }
+
+  /* footer: church mark + the parish's name and address (one block, the same on every page) */
+  .foot { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: var(--s-4, 16px) var(--s-5, 24px); align-items: start;
+          margin-top: clamp(48px, 10vw, 144px); padding: var(--s-6, 32px) 0 calc(var(--s-6, 32px) + env(safe-area-inset-bottom));
+          border-top: 1px solid var(--line); font: 400 13px/1.55 var(--font-ui); color: var(--quiet); text-align: left; }
+  .foot p, .foot address { margin: 0; font-style: normal; }
+  .foot-mark { display: grid; justify-items: center; width: 48px; min-height: 48px; margin: -2px -10px 0; }
+  .foot-mark img { display: block; width: 28px; height: auto; }
+  .foot-name { color: var(--ink); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; }
+  .foot-sub { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; line-height: 1.5; margin-bottom: 10px !important; }
+  .foot address a, .foot-legal a { display: inline-flex; align-items: center; min-height: 48px; color: var(--quiet); text-decoration: underline;
+          text-decoration-color: var(--line); text-underline-offset: 4px; transition: color .2s, text-decoration-color .2s; }
+  .foot address a { min-height: 48px; margin: -14px 0; }
+  .foot a:hover { color: var(--ink); text-decoration-color: var(--quiet); }
+  .foot-legal { display: flex; gap: var(--s-5, 24px); align-self: end; }
+  @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
+
+  .page .foot { margin-top: 40px; }
+  .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
+  .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
+  .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
+  .rel { list-style: none; margin: 0; padding: 0; font-size: 15px; }
+  .rel a { display: flex; align-items: center; min-height: var(--tap); text-decoration: none; border-top: 1px solid var(--line); }
+  .static { padding: 0 24px; }
+  /* title block left-aligned with the commemoration date under the name (user 2026-11-17) */
+  .title { text-align: left; }
+  .title .feast { margin: 8px 0 0; font-size: 16px; line-height: 1.45; color: var(--quiet); }
+  /* phones: about 30 characters a line, justified text opened rivers -> ragged right (UX audit 2026-11-17) */
+  @media (max-width: 500px) { .prayer-text, .life { text-align: start; } }
+  /* the Aa button steps aside while reading downwards and returns on any upward scroll or at the end of the page */
+  .menu { transition: transform .3s ease, opacity .3s ease; }
+  .menu.away { transform: translateY(calc(100% + 40px)); opacity: 0; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { .menu { transition: none; } }
+
+  /* the scrollbar's space is always reserved: opening the viewer (overflow hidden) no longer moves the page sideways */
+  html { scrollbar-gutter: stable; }
+  html.lb-lock, html.lb-lock body { overflow: hidden; }
+  html.lb-lock { background: #0C0A08; }        /* the reserved scrollbar strip takes the viewer's colour */
+  /* the whole icon fits on the first screen with the title (and the start of the prayer) under it: a tall icon is
+     shown narrower instead of pushing the text down; tap opens it full screen. --r = width / height (set inline) */
+  .icon .fig { position: relative; line-height: 0; margin: 0 auto; width: min(100%, calc((100vh - 260px) * var(--r, 1)));
+               width: min(100%, calc((100svh - 260px) * var(--r, 1))); }
+  .icon .fig img { cursor: zoom-in; -webkit-tap-highlight-color: transparent; }
+  .hs { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; -webkit-tap-highlight-color: transparent; }
+  .hs a { outline: none; }
+  .hs polygon { fill: rgba(255, 236, 190, 0); stroke: rgba(236, 208, 146, 0); stroke-width: 1; cursor: zoom-in;
+                transition: fill .35s ease, stroke .35s ease; }
+  .hs a:hover polygon, .hs a:focus-visible polygon { fill: rgba(255, 236, 190, .07); stroke: rgba(236, 208, 146, .9); }
+  .hs a:active polygon { fill: rgba(255, 236, 190, .14); }
+  @media (hover: none) {
+    .hs polygon { animation: hsReveal 3.4s ease .7s 1 both; }
+    @keyframes hsReveal { 0% { stroke: rgba(236, 208, 146, 0); } 18%, 62% { stroke: rgba(236, 208, 146, .8); } 100% { stroke: rgba(236, 208, 146, 0); } }
+  }
+  @media (prefers-reduced-motion: reduce) { .hs polygon { animation: none; stroke: rgba(236, 208, 146, .35); } }
+  .hs-hint { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 14px 0 0; font-family: var(--font-ui);
+             font-size: 13px; line-height: 1.4; letter-spacing: .02em; color: var(--quiet); text-align: center; }
+  .hs-hint::before { content: ""; width: 14px; height: 14px; flex: none; border: 1px solid currentColor; border-radius: 50%;
+                     background: radial-gradient(circle, currentColor 0 2px, transparent 2.5px); opacity: .8; }
+  .lb { position: fixed; inset: 0; z-index: 60; touch-action: none; -webkit-user-select: none; user-select: none; }
+  .lb-bg { position: absolute; inset: 0; background: #0C0A08; opacity: 0; transition: opacity .45s ease; }
+  .lb.on .lb-bg { opacity: 1; }
+  .lb-stage { position: absolute; inset: 0; }
+  .lb-img { position: absolute; transform-origin: 0 0; will-change: transform; -webkit-user-drag: none; cursor: zoom-in;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+  .lb.zoomed .lb-img { cursor: grab; }
+  .lb-tiles { position: absolute; transform-origin: 0 0; pointer-events: none; will-change: transform; }
+  .lb-tiles.anim { transition: transform .5s cubic-bezier(.2, .8, .16, 1); }
+  .lb-tiles img { position: absolute; display: block; opacity: 0; transition: opacity .25s ease; -webkit-user-drag: none; }
+  .lb-tiles img.ok { opacity: 1; }
+  .lb-img.anim { transition: transform .5s cubic-bezier(.2, .8, .16, 1), opacity .36s ease; }
+  .lb-top { position: absolute; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between;
+            padding: env(safe-area-inset-top) 6px 0 22px; height: calc(60px + env(safe-area-inset-top)); opacity: 0; transition: opacity .35s ease .1s; }
+  .lb-n { font: 400 12px/1 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--quiet); font-variant-numeric: tabular-nums; }
+  .lb-x { all: unset; width: 48px; height: 48px; display: grid; place-items: center; color: var(--ink); cursor: pointer; border-radius: 24px; }
+  .lb-x:focus-visible, .lb-arr:focus-visible, .lb-more:focus-visible { outline: 1px solid var(--quiet); outline-offset: 2px; }
+  .lb-cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 24px calc(20px + env(safe-area-inset-bottom)); text-align: center;
+            opacity: 0; transition: opacity .3s ease .1s; }
+  .lb.on .lb-top, .lb.on .lb-cap { opacity: 1; }
+  .lb.on.bare .lb-top, .lb.on.bare .lb-cap, .lb.on.zoomed .lb-cap, .lb.on.zoomed .lb-arr { opacity: 0; pointer-events: none; }
+  .lb-t { margin: 0 auto; max-width: 30em; font: 400 18px/1.35 var(--font-serif); color: var(--ink); text-wrap: balance; }
+  .lb-more { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 8px; padding: 0 18px; border: 1px solid var(--line);
+             border-radius: 22px; font: 400 14px/1 var(--font-ui); letter-spacing: .03em; color: var(--quiet); text-decoration: none;
+             transition: color .2s, border-color .2s; }
+  .lb-more:hover { color: var(--ink); border-color: var(--quiet); }
+  .lb-arr { all: unset; position: absolute; top: 50%; width: 64px; height: 96px; margin-top: -48px; display: grid; place-items: center;
+            color: var(--ink); opacity: 0; transition: opacity .3s ease; cursor: pointer; }
+  .lb.on .lb-arr { opacity: .45; } .lb.on .lb-arr:hover { opacity: 1; }
+  .lb-prev { left: 12px; } .lb-next { right: 12px; }
+  @media (prefers-reduced-motion: reduce) { .lb-bg, .lb-img.anim, .lb-top, .lb-cap, .lb-arr { transition: none !important; } }
+  /* end of the page: the next icon as one card, previous + all icons as a small row (option B, 2026-11-17) */
+  .nb { margin: 36px 0 0; font-family: var(--font-ui); }
+  .nb-lab { margin: 0 0 12px; font: 400 12px/1 var(--font-ui); letter-spacing: .16em; text-transform: uppercase; color: var(--quiet); }
+  .nb-card { display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px; margin: 0 -14px; border-radius: 14px;
+             text-decoration: none; color: var(--ink); transition: background-color .25s; }
+  .nb-card:hover { background: rgba(255, 255, 255, .035); }
+  .nb-th { flex: none; width: 64px; line-height: 0; }
+  .nb-th picture { display: contents; }
+  .nb-th img { width: 100%; height: auto; aspect-ratio: var(--r); object-fit: contain; display: block; box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+               transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
+  .nb-card:hover .nb-th img { transform: translateY(-2px); }
+  .nb-nm { flex: 1; min-width: 0; font: 400 20px/1.25 var(--font-rubric); text-wrap: balance; }
+  .nb-sec { display: block; margin-top: 6px; font: 400 13px/1.4 var(--font-ui); color: var(--quiet); }
+  .nb-arr { flex: none; color: var(--quiet); transition: transform .3s ease, color .2s; }
+  .nb-card:hover .nb-arr { transform: translateX(3px); color: var(--ink); }
+  .nb-row { display: flex; justify-content: space-between; margin: 10px 0 0; }
+  .nb-row a { display: inline-flex; align-items: center; gap: 6px; min-height: 48px; font: 400 14px var(--font-ui); color: var(--quiet);
+              text-decoration: none; transition: color .2s; }
+  .nb-row a:hover { color: var(--ink); }
+  .back[hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) { .nb-card, .nb-th img, .nb-arr { transition: none; } }
+  @view-transition { navigation: auto; }
+  @media (prefers-reduced-motion: reduce) { @view-transition { navigation: none; } }
+</style>
+</head>
+<body class="theme-church">
+<main class="page"><p class="missing" lang="ru">Эта икона сейчас не выставлена в храме.</p><p class="missing" lang="de" style="padding-top:0">Diese Ikone ist derzeit nicht ausgestellt.</p><section class="more"><a class="back" href="../../icons/index.html">← Все иконы храма · Alle Ikonen</a></section></main>
+</body>
+</html>

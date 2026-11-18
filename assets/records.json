@@ -7922,8 +7922,8 @@
     }
    ],
    "hint": {
-    "ru": "Коснитесь клейма, чтобы рассмотреть сцену жития",
-    "de": "Tippen Sie auf ein Bildfeld, um die Szene aus der Vita zu sehen"
+    "ru": "Коснитесь части росписи, чтобы рассмотреть её",
+    "de": "Tippen Sie auf einen Teil des Wandbildes, um ihn näher zu betrachten"
    }
   }
  },
@@ -11518,8 +11518,8 @@
     }
    ],
    "hint": {
-    "ru": "Коснитесь фигуры, чтобы рассмотреть её",
-    "de": "Tippen Sie auf eine Figur, um sie näher zu betrachten"
+    "ru": "Коснитесь части росписи, чтобы рассмотреть её",
+    "de": "Tippen Sie auf einen Teil des Wandbildes, um ihn näher zu betrachten"
    }
   }
  },

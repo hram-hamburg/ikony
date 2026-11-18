@@ -110,13 +110,13 @@
   @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
 
   .page .foot { margin-top: 40px; }
-  /* reading settings: one size for all reading text; weight stepper (user 2026-11-18) */
+  /* reading settings: one size for all reading text; cycling rows with a dot indicator (user 2026-11-18) */
   .hymn { font-size: calc(var(--prayer-size, 20px) - 2px); }
-  body.w0 .prayer-text { font-weight: 400; }
-  body.w2 .life, body.w2 .hymn { font-weight: 700; }
-  .size + .size { border-top: 1px solid var(--line); }
-  .step.wt { font-family: var(--font-serif); font-size: 19px; }
-  .step.wt.minus { font-weight: 400; } .step.wt.plus { font-weight: 700; }
+  body.bold .life, body.bold .hymn { font-weight: 700; }
+  .val { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .dots { display: inline-flex; gap: 4px; }
+  .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
+  .dots i.on { background: var(--ink); }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }

@@ -111,13 +111,13 @@
   @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
 
   .page .foot { margin-top: 40px; }
-  /* reading settings: one size for all reading text; weight stepper (user 2026-11-18) */
+  /* reading settings: one size for all reading text; cycling rows with a dot indicator (user 2026-11-18) */
   .hymn { font-size: calc(var(--prayer-size, 20px) - 2px); }
-  body.w0 .prayer-text { font-weight: 400; }
-  body.w2 .life, body.w2 .hymn { font-weight: 700; }
-  .size + .size { border-top: 1px solid var(--line); }
-  .step.wt { font-family: var(--font-serif); font-size: 19px; }
-  .step.wt.minus { font-weight: 400; } .step.wt.plus { font-weight: 700; }
+  body.bold .life, body.bold .hymn { font-weight: 700; }
+  .val { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); }
+  .dots { display: inline-flex; gap: 4px; }
+  .dots i { width: 6px; height: 6px; border-radius: 3px; background: var(--line); }
+  .dots i.on { background: var(--ink); }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
@@ -232,20 +232,8 @@
 
 <div class="menu" id="menu">
   <div class="panel" id="panel" role="group" hidden>
-    <div class="size">
-      <span class="label" data-t="sizeRow"></span>
-      <span class="steppers">
-        <button class="step minus" id="smaller" type="button">A−</button>
-        <button class="step plus" id="bigger" type="button">A+</button>
-      </span>
-    </div>
-    <div class="size">
-      <span class="label" data-t="weightRow"></span>
-      <span class="steppers">
-        <button class="step wt minus" id="thinner" type="button">A</button>
-        <button class="step wt plus" id="thicker" type="button">A</button>
-      </span>
-    </div>
+    <button class="row" id="size" type="button"><span class="label" data-t="sizeRow"></span><span class="val" id="sizeValue"></span></button>
+    <button class="row" id="weight" type="button"><span class="label" data-t="weightRow"></span><span class="val" id="weightValue"></span></button>
     <button class="row" id="lang" type="button"><span class="label" data-t="langRow"></span><span id="langValue"></span></button>
     <button class="row" id="read" type="button"><span class="label" data-t="readRow"></span><span id="readValue"></span></button>
   </div>
@@ -263,7 +251,7 @@
           where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
           gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
           all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
-          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Толщина шрифта', thinner: 'Тоньше', thicker: 'Толще', langRow: 'Язык', readRow: 'Чтение',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Шрифт', sizes: ['Обычный', 'Крупный', 'Очень крупный'], weights: ['Обычный', 'Жирный'], langRow: 'Язык', readRow: 'Чтение',
           other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
           close: 'Закрыть настройки', missing: 'Икона не найдена.' },
     de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',
@@ -272,7 +260,7 @@
           where: 'Ort in der Kirche', depiction: 'Darstellung', inscription: 'Inschrift', relic: 'Reliquie', painter: 'Ikonenmaler', number: 'Nummer',
           gapWhere: '[Ort laut Kirchenplan]', gapPainter: '[Name, Jahr]',
           all: '← Alle Ikonen der Kirche', church: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
-          nav: 'Leseeinstellungen', sizeRow: 'Schriftgröße', weightRow: 'Schriftstärke', thinner: 'Dünner', thicker: 'Kräftiger', langRow: 'Sprache', readRow: 'Lesen',
+          nav: 'Leseeinstellungen', sizeRow: 'Schriftgröße', weightRow: 'Schrift', sizes: ['Normal', 'Groß', 'Sehr groß'], weights: ['Normal', 'Fett'], langRow: 'Sprache', readRow: 'Lesen',
           other: 'Русский', readOn: 'Nur Text', readOff: 'Mit Ikone', smaller: 'Kleiner', bigger: 'Größer',
           close: 'Einstellungen schließen', missing: 'Ikone nicht gefunden.',
           noPrayerDe: 'Die deutsche Fassung dieses Gebets ist in Vorbereitung. Hier der russische Text.',
@@ -285,14 +273,15 @@
     get(k) { try { return localStorage.getItem('iconguide.' + k); } catch { return null; } },
     set(k, v) { try { localStorage.setItem('iconguide.' + k, v); } catch {} }
   };
-  const SIZE_MIN = 16, SIZE_MAX = 28, SIZE_STEP = 2, READING_BOOST = 3;
+  const READING_BOOST = 3;
+  const SIZES = matchMedia('(min-width: 700px)').matches ? [21, 24, 28] : [20, 23, 26];
   const showGaps = false;      // prototype shows "[…]" gaps; production: ?gaps=0 behaviour by default
   const browserDe = (navigator.language || '').toLowerCase().startsWith('de');
   const state = {
     lang: params.get('lang') || store.get('lang') || (browserDe ? 'de' : 'ru'),
-    size: Math.min(SIZE_MAX, Math.max(SIZE_MIN, Number(store.get('size')) || 20)),
+    sz: ({ '1': 1, '2': 2 })[store.get('sz')] ?? 0,
+    bold: store.get('bold') === '1',
     reading: params.get('read') === '1',
-    weight: ({ '0': 0, '2': 2 })[store.get('weight')] ?? 1,
     panel: false
   };
   if (!T[state.lang]) state.lang = 'ru';
@@ -524,14 +513,20 @@
 
   // ---------- render ----------
   const page = document.getElementById('page');
+  const OPEN = new Set();
+  page.addEventListener('toggle', e => { const k = e.target.dataset && e.target.dataset.k; if (k) e.target.open ? OPEN.add(k) : OPEN.delete(k); }, true);
+  function applySettings() {
+    const px = SIZES[state.sz] + (state.reading ? READING_BOOST : 0);
+    document.body.classList.toggle('large', px > 22);
+    document.body.classList.toggle('bold', state.bold);
+    document.documentElement.style.setProperty('--prayer-size', px + 'px');
+  }
   function render() {
     const L = state.lang, t = T[L];
+    const openK = OPEN;
     document.documentElement.lang = L;
     document.body.classList.toggle('reading', state.reading);
-    document.body.classList.toggle('w0', state.weight === 0);
-    document.body.classList.toggle('w2', state.weight === 2);
-    document.body.classList.toggle('large', state.size + (state.reading ? READING_BOOST : 0) > 22);
-    document.documentElement.style.setProperty('--prayer-size', (state.size + (state.reading ? READING_BOOST : 0)) + 'px');
+    applySettings();
 
     if (!icon) { page.innerHTML = `<p class="missing">${esc(t.missing)}</p>`; return; }
     document.title = `${pick(icon.short, L) || icon.short.ru} — ${t.church}`;
@@ -558,13 +553,13 @@
     ].filter(r => r[1]);
 
     const blocks = [];
-    if (prayerShown) blocks.push([t.prayer, `<p class="prayer-text" lang="${prayerLang}">${withInitial(prayerShown.text)}</p>`]);
-    if (hasHymns) blocks.push([t.hymns, `${tropText ? `<p class="hymn-rubric">${esc(icon.troparion.tone ? t.trop(icon.troparion.tone) : t.trop('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(tropText)}</p>` : ''}
+    if (prayerShown) blocks.push(['prayer', t.prayer, `<p class="prayer-text" lang="${prayerLang}">${withInitial(prayerShown.text)}</p>`]);
+    if (hasHymns) blocks.push(['hymns', t.hymns, `${tropText ? `<p class="hymn-rubric">${esc(icon.troparion.tone ? t.trop(icon.troparion.tone) : t.trop('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(tropText)}</p>` : ''}
             ${kontText ? `<p class="hymn-rubric">${esc(icon.kontakion.tone ? t.kont(icon.kontakion.tone) : t.kont('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(kontText)}</p>` : ''}`]);
-    if (lifeShown) blocks.push([t.life, `${!life && L !== 'ru' ? `<p class="note">${esc(t.noLifeDe)}</p>` : ''}
+    if (lifeShown) blocks.push(['life', t.life, `${!life && L !== 'ru' ? `<p class="note">${esc(t.noLifeDe)}</p>` : ''}
             <p class="life" lang="${life ? L : 'ru'}">${paras(lifeShown)}</p>`]);
-    const lead = blocks.length ? `<section class="prayer" aria-labelledby="rubric"><h2 class="rubric" id="rubric">${esc(blocks[0][0])}</h2>${blocks[0][1]}</section>` : '';
-    const rest = blocks.slice(1).map(([h, b]) => `<details><summary>${esc(h)}</summary><div class="body">${b}</div></details>`).join('');
+    const lead = blocks.length ? `<section class="prayer" aria-labelledby="rubric"><h2 class="rubric" id="rubric">${esc(blocks[0][1])}</h2>${blocks[0][2]}</section>` : '';
+    const rest = blocks.slice(1).map(([k, h, b]) => `<details data-k="${k}"${openK.has(k) ? ' open' : ''}><summary>${esc(h)}</summary><div class="body">${b}</div></details>`).join('');
 
     page.innerHTML = `
       ${I ? `<figure class="icon"><div class="fig" style="--r:${(I.w / I.h).toFixed(4)}"><picture><source type="image/avif" srcset="${I.base}-480.avif 480w, ${I.base}-800.avif 800w, ${I.base}-1200.avif 1200w" sizes="${I.sizes}"><img src="${I.base}-800.webp" srcset="${I.base}-480.webp 480w, ${I.base}-800.webp 800w, ${I.base}-1200.webp 1200w" sizes="${I.sizes}" alt="${esc(pick(I.alt, L) || I.alt.ru)}" width="${I.w}" height="${I.h}" decoding="async" fetchpriority="high"></picture>${hotspots(L)}</div>${icon.hotspots ? `<figcaption class="hs-hint">${esc(icon.hotspots.hint[L] || icon.hotspots.hint.ru)}</figcaption>` : ''}</figure>` : ''}
@@ -604,14 +599,9 @@
     $('fab').textContent = state.panel ? '×' : 'Aa';
     $('fab').setAttribute('aria-expanded', String(state.panel));
     $('fab').setAttribute('aria-label', state.panel ? t.close : t.nav);
-    $('smaller').setAttribute('aria-label', t.smaller);
-    $('bigger').setAttribute('aria-label', t.bigger);
-    $('smaller').disabled = state.size <= SIZE_MIN;
-    $('bigger').disabled = state.size >= SIZE_MAX;
-    $('thinner').setAttribute('aria-label', t.thinner);
-    $('thicker').setAttribute('aria-label', t.thicker);
-    $('thinner').disabled = state.weight <= 0;
-    $('thicker').disabled = state.weight >= 2;
+    const dots = (n, i) => Array.from({ length: n }, (_, k) => `<i${k === i ? ' class="on"' : ''}></i>`).join('');
+    $('sizeValue').innerHTML = `${esc(t.sizes[state.sz])}<span class="dots" aria-hidden="true">${dots(3, state.sz)}</span>`;
+    $('weightValue').innerHTML = `${esc(t.weights[+state.bold])}<span class="dots" aria-hidden="true">${dots(2, +state.bold)}</span>`;
     $('langValue').textContent = t.other;                    // shows the language you will switch TO
     $('readValue').textContent = state.reading ? t.readOff : t.readOn;  // shows what tapping will do
   }
@@ -624,10 +614,8 @@
   }
 
   $('fab').addEventListener('click', () => { state.panel = !state.panel; renderMenu(); });
-  $('smaller').addEventListener('click', () => { state.size = Math.max(SIZE_MIN, state.size - SIZE_STEP); store.set('size', state.size); render(); });
-  $('bigger').addEventListener('click', () => { state.size = Math.min(SIZE_MAX, state.size + SIZE_STEP); store.set('size', state.size); render(); });
-  $('thinner').addEventListener('click', () => { state.weight = Math.max(0, state.weight - 1); store.set('weight', state.weight); render(); });
-  $('thicker').addEventListener('click', () => { state.weight = Math.min(2, state.weight + 1); store.set('weight', state.weight); render(); });
+  $('size').addEventListener('click', () => { state.sz = (state.sz + 1) % SIZES.length; store.set('sz', state.sz); applySettings(); renderMenu(); });
+  $('weight').addEventListener('click', () => { state.bold = !state.bold; store.set('bold', state.bold ? '1' : '0'); applySettings(); renderMenu(); });
   $('lang').addEventListener('click', () => { state.lang = state.lang === 'ru' ? 'de' : 'ru'; store.set('lang', state.lang); syncUrl(); render(); $('lang').focus(); });
   $('read').addEventListener('click', () => { state.reading = !state.reading; syncUrl(); render(); window.scrollTo({ top: 0 }); $('read').focus(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.panel) { state.panel = false; renderMenu(); $('fab').focus(); } });

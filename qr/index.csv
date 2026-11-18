@@ -75,8 +75,6 @@ number,qr_content,title,qr_version,mode
 078,HTTPS://HAMBURG-HRAM.DE/I/078,Преподобные Кирилл и Мария Радонежские,2,alphanumeric
 079,HTTPS://HAMBURG-HRAM.DE/I/079,Богоматерь «Казанская»,2,alphanumeric
 081,HTTPS://HAMBURG-HRAM.DE/I/081,Богоматерь «Одигитрия»,2,alphanumeric
-082,HTTPS://HAMBURG-HRAM.DE/I/082,Икона № 082,2,alphanumeric
-083,HTTPS://HAMBURG-HRAM.DE/I/083,Икона № 083,2,alphanumeric
 084,HTTPS://HAMBURG-HRAM.DE/I/084,Минея годовая (святые на весь год),2,alphanumeric
 086,HTTPS://HAMBURG-HRAM.DE/I/086,Покров Пресвятой Богородицы,2,alphanumeric
 087,HTTPS://HAMBURG-HRAM.DE/I/087,Киот с иконами (обзор),2,alphanumeric
@@ -93,10 +91,12 @@ number,qr_content,title,qr_version,mode
 098,HTTPS://HAMBURG-HRAM.DE/I/098,Богоматерь «Неупиваемая Чаша»,2,alphanumeric
 099,HTTPS://HAMBURG-HRAM.DE/I/099,Сказание о чудотворных иконах Пресвятой Богородицы,2,alphanumeric
 100,HTTPS://HAMBURG-HRAM.DE/I/100,Святые Константин и Елена с Богоматерью (роспись),2,alphanumeric
-101,HTTPS://HAMBURG-HRAM.DE/I/101,Икона № 101,2,alphanumeric
 102,HTTPS://HAMBURG-HRAM.DE/I/102,Крест с Распятием (без боковых панелей),2,alphanumeric
 103,HTTPS://HAMBURG-HRAM.DE/I/103,Икона № 103,2,alphanumeric
 034,HTTPS://HAMBURG-HRAM.DE/I/034,removed,2,alphanumeric
 035,HTTPS://HAMBURG-HRAM.DE/I/035,removed,2,alphanumeric
 080,HTTPS://HAMBURG-HRAM.DE/I/080,removed,2,alphanumeric
+082,HTTPS://HAMBURG-HRAM.DE/I/082,removed,2,alphanumeric
+083,HTTPS://HAMBURG-HRAM.DE/I/083,removed,2,alphanumeric
 085,HTTPS://HAMBURG-HRAM.DE/I/085,removed,2,alphanumeric
+101,HTTPS://HAMBURG-HRAM.DE/I/101,removed,2,alphanumeric

@@ -8921,212 +8921,6 @@
    }
   }
  },
- "I082": {
-  "id": "082",
-  "kind": "saint",
-  "name": {
-   "ru": "Икона № 082",
-   "de": null
-  },
-  "short": {
-   "ru": "Икона № 082",
-   "de": null
-  },
-  "feasts": [],
-  "feastLine": {
-   "ru": null,
-   "de": null
-  },
-  "feastsSource": null,
-  "prayer": {
-   "ru": null,
-   "de": null
-  },
-  "troparion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "kontakion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "life": {
-   "ru": null,
-   "de": null
-  },
-  "about": {
-   "location": null,
-   "depiction": null,
-   "inscription": null,
-   "relic": null,
-   "iconographer": null
-  },
-  "approved": null,
-  "image": {
-   "base": "../../assets/img/082",
-   "w": 1200,
-   "h": 1807,
-   "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6641)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6641))",
-   "alt": {
-    "ru": "Икона: Икона № 082",
-    "de": null
-   }
-  },
-  "zoom": {
-   "img": "../../assets/img/082-1200.webp",
-   "img2x": "../../assets/img/082-1800.webp",
-   "w": 1200,
-   "h": 1807,
-   "tiles": {
-    "base": "../../media/082/tiles",
-    "w": 5090,
-    "h": 7666,
-    "sf": [
-     1,
-     2,
-     4,
-     8,
-     16
-    ],
-    "box": [
-     0,
-     0,
-     1,
-     1
-    ]
-   }
-  },
-  "related": [
-   {
-    "id": "084",
-    "ru": "Минея годовая (святые на весь год)",
-    "de": null
-   }
-  ],
-  "relTitle": {
-   "ru": "Входит в состав",
-   "de": "Gehört zu"
-  },
-  "nav": {
-   "prev": null,
-   "next": {
-    "id": "083",
-    "ru": "Икона № 083",
-    "de": null,
-    "img": "../../assets/img/083-480",
-    "r": 0.6641,
-    "sec": {
-     "ru": "Минея годовая (святые на весь год)",
-     "de": null
-    }
-   }
-  }
- },
- "I083": {
-  "id": "083",
-  "kind": "saint",
-  "name": {
-   "ru": "Икона № 083",
-   "de": null
-  },
-  "short": {
-   "ru": "Икона № 083",
-   "de": null
-  },
-  "feasts": [],
-  "feastLine": {
-   "ru": null,
-   "de": null
-  },
-  "feastsSource": null,
-  "prayer": {
-   "ru": null,
-   "de": null
-  },
-  "troparion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "kontakion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "life": {
-   "ru": null,
-   "de": null
-  },
-  "about": {
-   "location": null,
-   "depiction": null,
-   "inscription": null,
-   "relic": null,
-   "iconographer": null
-  },
-  "approved": null,
-  "image": {
-   "base": "../../assets/img/083",
-   "w": 1200,
-   "h": 1807,
-   "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6641)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6641))",
-   "alt": {
-    "ru": "Икона: Икона № 083",
-    "de": null
-   }
-  },
-  "zoom": {
-   "img": "../../assets/img/083-1200.webp",
-   "img2x": "../../assets/img/083-1800.webp",
-   "w": 1200,
-   "h": 1807,
-   "tiles": {
-    "base": "../../media/083/tiles",
-    "w": 5090,
-    "h": 7666,
-    "sf": [
-     1,
-     2,
-     4,
-     8,
-     16
-    ],
-    "box": [
-     0,
-     0,
-     1,
-     1
-    ]
-   }
-  },
-  "related": [
-   {
-    "id": "084",
-    "ru": "Минея годовая (святые на весь год)",
-    "de": null
-   }
-  ],
-  "relTitle": {
-   "ru": "Входит в состав",
-   "de": "Gehört zu"
-  },
-  "nav": {
-   "prev": {
-    "id": "082",
-    "ru": "Икона № 082",
-    "de": null,
-    "img": "../../assets/img/082-480",
-    "r": 0.6641,
-    "sec": {
-     "ru": "Минея годовая (святые на весь год)",
-     "de": null
-    }
-   },
-   "next": null
-  }
- },
  "I084": {
   "id": "084",
   "kind": "feast",
@@ -9203,22 +8997,6 @@
      1
     ]
    }
-  },
-  "related": [
-   {
-    "id": "082",
-    "ru": "Икона № 082",
-    "de": null
-   },
-   {
-    "id": "083",
-    "ru": "Икона № 083",
-    "de": null
-   }
-  ],
-  "relTitle": {
-   "ru": "Отдельные части",
-   "de": "Einzelne Teile"
   },
   "nav": {
    "prev": {
@@ -9307,7 +9085,7 @@
      "pts": "50.7,1.8 73.9,1.8 73.9,33.8 50.7,33.8",
      "ru": "Март",
      "de": "März",
-     "id": "083",
+     "id": null,
      "tiles": {
       "base": "../../media/084/tiles",
       "w": 3991,
@@ -9559,7 +9337,7 @@
      "pts": "74.7,66.1 97.7,66.1 97.7,98.2 74.7,98.2",
      "ru": "Декабрь",
      "de": "Dezember",
-     "id": "082",
+     "id": null,
      "tiles": {
       "base": "../../media/084/tiles",
       "w": 3991,
@@ -11613,17 +11391,6 @@
     ]
    }
   },
-  "related": [
-   {
-    "id": "101",
-    "ru": "Икона № 101",
-    "de": null
-   }
-  ],
-  "relTitle": {
-   "ru": "Отдельные части",
-   "de": "Einzelne Teile"
-  },
   "nav": {
    "prev": {
     "id": "097",
@@ -11711,7 +11478,7 @@
      "pts": "64.2,27.5 90.4,27.5 90.4,92.5 64.2,92.5",
      "ru": "Равноапостольная царица Елена",
      "de": "Die heilige apostelgleiche Kaiserin Helena",
-     "id": "101",
+     "id": null,
      "tiles": {
       "base": "../../media/100/tiles",
       "w": 4932,
@@ -11740,99 +11507,6 @@
     "ru": "Коснитесь фигуры, чтобы рассмотреть её",
     "de": "Tippen Sie auf eine Figur, um sie näher zu betrachten"
    }
-  }
- },
- "I101": {
-  "id": "101",
-  "kind": "saint",
-  "name": {
-   "ru": "Икона № 101",
-   "de": null
-  },
-  "short": {
-   "ru": "Икона № 101",
-   "de": null
-  },
-  "feasts": [],
-  "feastLine": {
-   "ru": null,
-   "de": null
-  },
-  "feastsSource": null,
-  "prayer": {
-   "ru": null,
-   "de": null
-  },
-  "troparion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "kontakion": {
-   "tone": null,
-   "ru": null,
-   "de": null
-  },
-  "life": {
-   "ru": null,
-   "de": null
-  },
-  "about": {
-   "location": null,
-   "depiction": null,
-   "inscription": null,
-   "relic": null,
-   "iconographer": null
-  },
-  "approved": null,
-  "image": {
-   "base": "../../assets/img/101",
-   "w": 1200,
-   "h": 1807,
-   "sizes": "(min-width: 560px) min(512px, calc((100vh - 260px) * 0.6641)), min(calc(100vw - 48px), calc((100vh - 260px) * 0.6641))",
-   "alt": {
-    "ru": "Икона: Икона № 101",
-    "de": null
-   }
-  },
-  "zoom": {
-   "img": "../../assets/img/101-1200.webp",
-   "img2x": "../../assets/img/101-1800.webp",
-   "w": 1200,
-   "h": 1807,
-   "tiles": {
-    "base": "../../media/101/tiles",
-    "w": 5090,
-    "h": 7666,
-    "sf": [
-     1,
-     2,
-     4,
-     8,
-     16
-    ],
-    "box": [
-     0,
-     0,
-     1,
-     1
-    ]
-   }
-  },
-  "related": [
-   {
-    "id": "100",
-    "ru": "Святые Константин и Елена с Богоматерью (роспись)",
-    "de": "Die apostelgleichen Hl. Kaiser Konstantin und die Hl. Kaiserin Helena"
-   }
-  ],
-  "relTitle": {
-   "ru": "Входит в состав",
-   "de": "Gehört zu"
-  },
-  "nav": {
-   "prev": null,
-   "next": null
   }
  },
  "I102": {

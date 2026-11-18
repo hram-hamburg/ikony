@@ -111,6 +111,13 @@
   @media (max-width: 640px) { .foot { grid-template-columns: auto minmax(0, 1fr); } .foot-legal { grid-column: 2; align-self: start; margin-top: -8px !important; } }
 
   .page .foot { margin-top: 40px; }
+  /* reading settings: one size for all reading text; weight stepper (user 2026-11-18) */
+  .hymn { font-size: calc(var(--prayer-size, 20px) - 2px); }
+  body.w0 .prayer-text { font-weight: 400; }
+  body.w2 .life, body.w2 .hymn { font-weight: 700; }
+  .size + .size { border-top: 1px solid var(--line); }
+  .step.wt { font-family: var(--font-serif); font-size: 19px; }
+  .step.wt.minus { font-weight: 400; } .step.wt.plus { font-weight: 700; }
   .prayer-text br + br, .life br + br { display: block; content: ""; margin-top: .6em; }
   .rel-h { margin: 22px 0 6px; font-size: 15px; color: var(--quiet); }
   .cat { margin: 18px 0 0; font: 400 13px/1.5 var(--font-ui); color: var(--quiet); }
@@ -231,6 +238,13 @@
         <button class="step plus" id="bigger" type="button">A+</button>
       </span>
     </div>
+    <div class="size">
+      <span class="label" data-t="weightRow"></span>
+      <span class="steppers">
+        <button class="step wt minus" id="thinner" type="button">A</button>
+        <button class="step wt plus" id="thicker" type="button">A</button>
+      </span>
+    </div>
     <button class="row" id="lang" type="button"><span class="label" data-t="langRow"></span><span id="langValue"></span></button>
     <button class="row" id="read" type="button"><span class="label" data-t="readRow"></span><span id="readValue"></span></button>
   </div>
@@ -248,7 +262,7 @@
           where: 'Где в храме', depiction: 'Изображение', inscription: 'Надпись', relic: 'Святыня', painter: 'Иконописец', number: 'Номер',
           gapWhere: '[место по плану храма]', gapPainter: '[имя, год]',
           all: '← Все иконы храма', church: 'Храм св. прав. Иоанна Кронштадтского · Гамбург',
-          nav: 'Настройки чтения', sizeRow: 'Размер текста', langRow: 'Язык', readRow: 'Чтение',
+          nav: 'Настройки чтения', sizeRow: 'Размер текста', weightRow: 'Толщина шрифта', thinner: 'Тоньше', thicker: 'Толще', langRow: 'Язык', readRow: 'Чтение',
           other: 'Deutsch', readOn: 'Только текст', readOff: 'С иконой', smaller: 'Мельче', bigger: 'Крупнее',
           close: 'Закрыть настройки', missing: 'Икона не найдена.' },
     de: { prayer: 'Gebet', hymns: 'Troparion und Kontakion', life: 'Kurzvita', about: 'Über die Ikone',
@@ -257,7 +271,7 @@
           where: 'Ort in der Kirche', depiction: 'Darstellung', inscription: 'Inschrift', relic: 'Reliquie', painter: 'Ikonenmaler', number: 'Nummer',
           gapWhere: '[Ort laut Kirchenplan]', gapPainter: '[Name, Jahr]',
           all: '← Alle Ikonen der Kirche', church: 'Kirche des hl. Johannes von Kronstadt · Hamburg',
-          nav: 'Leseeinstellungen', sizeRow: 'Schriftgröße', langRow: 'Sprache', readRow: 'Lesen',
+          nav: 'Leseeinstellungen', sizeRow: 'Schriftgröße', weightRow: 'Schriftstärke', thinner: 'Dünner', thicker: 'Kräftiger', langRow: 'Sprache', readRow: 'Lesen',
           other: 'Русский', readOn: 'Nur Text', readOff: 'Mit Ikone', smaller: 'Kleiner', bigger: 'Größer',
           close: 'Einstellungen schließen', missing: 'Ikone nicht gefunden.',
           noPrayerDe: 'Die deutsche Fassung dieses Gebets ist in Vorbereitung. Hier der russische Text.',
@@ -277,6 +291,7 @@
     lang: params.get('lang') || store.get('lang') || (browserDe ? 'de' : 'ru'),
     size: Math.min(SIZE_MAX, Math.max(SIZE_MIN, Number(store.get('size')) || 20)),
     reading: params.get('read') === '1',
+    weight: ({ '0': 0, '2': 2 })[store.get('weight')] ?? 1,
     panel: false
   };
   if (!T[state.lang]) state.lang = 'ru';
@@ -512,6 +527,8 @@
     const L = state.lang, t = T[L];
     document.documentElement.lang = L;
     document.body.classList.toggle('reading', state.reading);
+    document.body.classList.toggle('w0', state.weight === 0);
+    document.body.classList.toggle('w2', state.weight === 2);
     document.body.classList.toggle('large', state.size + (state.reading ? READING_BOOST : 0) > 22);
     document.documentElement.style.setProperty('--prayer-size', (state.size + (state.reading ? READING_BOOST : 0)) + 'px');
 
@@ -521,7 +538,7 @@
     const prayer = pick(icon.prayer, L);
     const prayerRu = icon.prayer.ru;
     const I = icon.image;
-    const prayerShown = prayer || prayerRu;
+    const prayerShown = prayer;     // German page: no Russian prayer (user 2026-11-18)
     const prayerLang = prayer ? L : 'ru';
     const life = pick(icon.life, L);
     const lifeShown = life || icon.life.ru;
@@ -539,6 +556,15 @@
       [t.number, icon.id]
     ].filter(r => r[1]);
 
+    const blocks = [];
+    if (prayerShown) blocks.push([t.prayer, `<p class="prayer-text" lang="${prayerLang}">${withInitial(prayerShown.text)}</p>`]);
+    if (hasHymns) blocks.push([t.hymns, `${tropText ? `<p class="hymn-rubric">${esc(icon.troparion.tone ? t.trop(icon.troparion.tone) : t.trop('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(tropText)}</p>` : ''}
+            ${kontText ? `<p class="hymn-rubric">${esc(icon.kontakion.tone ? t.kont(icon.kontakion.tone) : t.kont('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(kontText)}</p>` : ''}`]);
+    if (lifeShown) blocks.push([t.life, `${!life && L !== 'ru' ? `<p class="note">${esc(t.noLifeDe)}</p>` : ''}
+            <p class="life" lang="${life ? L : 'ru'}">${paras(lifeShown)}</p>`]);
+    const lead = blocks.length ? `<section class="prayer" aria-labelledby="rubric"><h2 class="rubric" id="rubric">${esc(blocks[0][0])}</h2>${blocks[0][1]}</section>` : '';
+    const rest = blocks.slice(1).map(([h, b]) => `<details><summary>${esc(h)}</summary><div class="body">${b}</div></details>`).join('');
+
     page.innerHTML = `
       ${I ? `<figure class="icon"><div class="fig" style="--r:${(I.w / I.h).toFixed(4)}"><picture><source type="image/avif" srcset="${I.base}-480.avif 480w, ${I.base}-800.avif 800w, ${I.base}-1200.avif 1200w" sizes="${I.sizes}"><img src="${I.base}-800.webp" srcset="${I.base}-480.webp 480w, ${I.base}-800.webp 800w, ${I.base}-1200.webp 1200w" sizes="${I.sizes}" alt="${esc(pick(I.alt, L) || I.alt.ru)}" width="${I.w}" height="${I.h}" decoding="async" fetchpriority="high"></picture>${hotspots(L)}</div>${icon.hotspots ? `<figcaption class="hs-hint">${esc(icon.hotspots.hint[L] || icon.hotspots.hint.ru)}</figcaption>` : ''}</figure>` : ''}
       <header class="title">
@@ -547,25 +573,10 @@
       </header>
       <p class="reading-head">${esc(short)}</p>
 
-      ${prayerShown ? `<section class="prayer" aria-labelledby="rubric">
-        <h2 class="rubric" id="rubric">${esc(t.prayer)}</h2>
-        ${!prayer && L !== 'ru' ? `<p class="note">${esc(t.noPrayerDe)}</p>` : ''}
-        <p class="prayer-text" lang="${prayerLang}">${withInitial(prayerShown.text)}</p>
-      </section>` : ''}
+      ${lead}
 
       <section class="more">
-        ${hasHymns ? `<details>
-          <summary>${esc(t.hymns)}</summary>
-          <div class="body">
-            ${tropText ? `<p class="hymn-rubric">${esc(icon.troparion.tone ? t.trop(icon.troparion.tone) : t.trop('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(tropText)}</p>` : ''}
-            ${kontText ? `<p class="hymn-rubric">${esc(icon.kontakion.tone ? t.kont(icon.kontakion.tone) : t.kont('').replace(/,.*$/, ''))}</p><p class="hymn" lang="${L}">${paras(kontText)}</p>` : ''}
-          </div></details>` : ''}
-        ${lifeShown ? `<details>
-          <summary>${esc(t.life)}</summary>
-          <div class="body">
-            ${!life && L !== 'ru' ? `<p class="note">${esc(t.noLifeDe)}</p>` : ''}
-            <p class="life" lang="${life ? L : 'ru'}">${paras(lifeShown)}</p>
-          </div></details>` : ''}
+        ${rest}
         ${(icon.related || []).length ? `<div class="rel-wrap"><p class="rel-h">${L === 'ru' ? icon.relTitle.ru : icon.relTitle.de}</p><ul class="rel">${icon.related.map(r => `<li><a href="../${r.id}/index.html?lang=${L}"${r.de && L === 'de' ? '' : ' lang="ru"'}>${esc(L === 'de' && r.de ? r.de : r.ru)}</a></li>`).join('')}</ul></div>` : ''}
         ${icon.catalogue ? `<p class="cat"${icon.catalogue[L] ? '' : ' lang="ru"'}>${esc(icon.catalogue[L] || icon.catalogue.ru)}</p>` : ''}
         ${(() => { const N = icon.nav || {}, nx = N.next, pv = N.prev, de = L === 'de';
@@ -596,6 +607,10 @@
     $('bigger').setAttribute('aria-label', t.bigger);
     $('smaller').disabled = state.size <= SIZE_MIN;
     $('bigger').disabled = state.size >= SIZE_MAX;
+    $('thinner').setAttribute('aria-label', t.thinner);
+    $('thicker').setAttribute('aria-label', t.thicker);
+    $('thinner').disabled = state.weight <= 0;
+    $('thicker').disabled = state.weight >= 2;
     $('langValue').textContent = t.other;                    // shows the language you will switch TO
     $('readValue').textContent = state.reading ? t.readOff : t.readOn;  // shows what tapping will do
   }
@@ -610,6 +625,8 @@
   $('fab').addEventListener('click', () => { state.panel = !state.panel; renderMenu(); });
   $('smaller').addEventListener('click', () => { state.size = Math.max(SIZE_MIN, state.size - SIZE_STEP); store.set('size', state.size); render(); });
   $('bigger').addEventListener('click', () => { state.size = Math.min(SIZE_MAX, state.size + SIZE_STEP); store.set('size', state.size); render(); });
+  $('thinner').addEventListener('click', () => { state.weight = Math.max(0, state.weight - 1); store.set('weight', state.weight); render(); });
+  $('thicker').addEventListener('click', () => { state.weight = Math.min(2, state.weight + 1); store.set('weight', state.weight); render(); });
   $('lang').addEventListener('click', () => { state.lang = state.lang === 'ru' ? 'de' : 'ru'; store.set('lang', state.lang); syncUrl(); render(); $('lang').focus(); });
   $('read').addEventListener('click', () => { state.reading = !state.reading; syncUrl(); render(); window.scrollTo({ top: 0 }); $('read').focus(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.panel) { state.panel = false; renderMenu(); $('fab').focus(); } });
